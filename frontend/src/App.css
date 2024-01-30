@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+body {
+  background: linear-gradient(90deg, rgb(212, 248, 215) 0%, rgb(226, 222, 170) 100%);
+}
