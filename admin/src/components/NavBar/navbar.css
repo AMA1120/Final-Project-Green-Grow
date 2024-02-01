@@ -1,0 +1,77 @@
+/* navbar.css */
+
+.body1 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  height: auto;
+  width: auto;
+}
+
+.admin-dashboard {
+  display: flex;
+  font-family: 'Roboto', sans-serif; /* Use a modern font */
+}
+
+.sidebar {
+  background-color: #263109; /* Dark background color */
+  color: #ecf0f1; /* Light text color */
+  padding: 20px;
+  min-width: 200px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar a {
+  display: block;
+  color: #ecf0f1;
+  text-decoration: none;
+  margin-bottom: 20px; /* Increase the margin between items */
+  text-align: center; /* Center-align the text */
+  font-size: 18px; /* Increase the font size */
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.5em;
+  margin: 20px 0;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align the menu items */
+  margin: auto; /* Center the entire menu vertically */
+}
+
+.nav-menu li {
+  margin-bottom: 20px; /* Increase the margin between items */
+  align-items: baseline;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-menu i {
+  margin-right: 8px;
+}
+
+.nav-menu a:hover {
+  color: #3498db; /* Highlight color on hover */
+}
+
+/* Add a transition effect to the hover state */
+.content {
+  flex: 1;
+  padding: 20px;
+  align-items: center;
+}

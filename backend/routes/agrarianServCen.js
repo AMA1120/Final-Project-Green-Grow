@@ -7,7 +7,7 @@ const env = require("dotenv").config();
 
 
 router.post("/add", async (req, res) => {
- const {province, district, municipalcouncil, city, username, password} = req.body;
+ const {name, province, district, municipalcouncil, city, username, password} = req.body;
  const encryptedPassword = await bcrypt.hash(password, 10);
  try{
     const oldAgrarian = await Agrarian.findOne({username});
@@ -15,6 +15,7 @@ router.post("/add", async (req, res) => {
         res.status(403).send({error: "User Exists"});
  }else{
     const savedAgrarian = new Agrarian({
+        name,
         province,
         district,
         municipalcouncil,
@@ -34,4 +35,32 @@ router.post("/add", async (req, res) => {
 }
 });
 
+//get all agrarian service centers
+router.get("/get", async (req, res) => {
+    try {
+        const agrarian = await Agrarian.find();
+        res.json(agrarian);
+    } catch (error) {
+        res.json({ message: error });
+    }
+});
+
+//delete agrarian service center
+router.delete("/deleteASC", async (req, res) => { 
+    const { username } = req.body;
+    
+    try {
+      const deletedASC = await User.findOneAndDelete({ username });
+      
+      if (deletedASC) {
+        res.json({ success: true, message: 'User deleted successfully.' });
+      } else {
+        res.json({ error: "User not found or already deleted." });
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error.message);
+      res.status(500).json({ status: "error", error: error.message });
+    }
+  });
+  
 module.exports = router;
