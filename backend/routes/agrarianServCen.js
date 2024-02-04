@@ -45,21 +45,20 @@ router.get("/get", async (req, res) => {
     }
 });
 
-//delete agrarian service center
-router.delete("/deleteASC", async (req, res) => { 
-    const { username } = req.body;
+//delete agrarian service center by ID
+router.delete("/deleteASC/:id", async (req, res) => { 
+    const id = req.params.id;
     
     try {
-      const deletedASC = await User.findOneAndDelete({ username });
+      const deletedASC = await Agrarian.findByIdAndDelete(id);
       
-      if (deletedASC) {
-        res.json({ success: true, message: 'User deleted successfully.' });
-      } else {
-        res.json({ error: "User not found or already deleted." });
+      if (!deletedASC) {
+        return res.status(404).json({ error: "Admin not found" });
       }
+      console.log("Deleted ASC:", deletedASC);
+      res.json({ message: "ASC deleted successfully" });
     } catch (error) {
-      console.error("Error deleting user:", error.message);
-      res.status(500).json({ status: "error", error: error.message });
+      res.status(500).json({ message: "Internal Server Error" });
     }
   });
   
