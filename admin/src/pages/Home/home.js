@@ -45,7 +45,7 @@ function Home() {
                 <th>Province</th>
                 <th>District</th>
                 <th>Municipal Council</th>
-                <th>city</th>
+                <th>City</th>
                 <th>Username</th>
                 <th>Delete ASC</th>
               </tr>
