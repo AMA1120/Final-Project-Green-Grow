@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/NavBar/navbar";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import "./home.css";
 
 function Home() {
@@ -7,43 +9,23 @@ function Home() {
 
   useEffect(() => {
     // Fetch data from the server
-    fetch("http://localhost:3000/Agrarian/get")
+    fetch("http://localhost:3000/agrarian/get")
       .then((response) => response.json())
       .then((agrarian) => setagrarian(agrarian))
       .catch((error) => console.error("Error fetching agrarian data:", error));
   }, []);
 
-  const handleDelete = async (username) => {
-    const isConfirmed = window.confirm(
-      `Are you sure you want to delete the agrarian '${username}'?`
-    );
-    if (!isConfirmed) {
-      return;
-    }
+  const deleteASC = async (id) => {
     try {
-      const response = await fetch("http://localhost:3000/deleteASC", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username }),
-      });
-
-      const responseData = await response.json();
-
-      // If deletion is successful,The table get reset
-      
-      if (responseData.success) {
-        const updatedagrarian = agrarian.filter((agrarian) => agrarian.username !== username);
-        setagrarian(updatedagrarian);
-        alert("succesfully Deleted the agrarian service center!");
-      } else {
-        console.log("agrarian not found.");
-      }
+      const response = await axios.delete(
+        `http://localhost:3000/agrarian/deleteASC/${id}`
+      );
+      console.log(response.data);
     } catch (error) {
-      console.error(error);
+      console.error("Error deleting ASC:", error);
     }
   };
+
 
   return (
     <div className="home-container">
@@ -53,6 +35,9 @@ function Home() {
 
         <div className="tbl-container">
           <h1>Agrarian Service Centers</h1>
+          <Link to="/addASC" className="add-button">
+                + Add new Agrarian Service Center
+              </Link>
           <table className="user-table">
             <thead>
               <tr>
@@ -77,7 +62,10 @@ function Home() {
                   <td>
                     <button
                       className="button2"
-                      onClick={() => handleDelete(agrarian.username)}
+                      onClick={() => { 
+                       deleteASC(agrarian._id);
+                      window.location.reload();
+                     }}
                     >
                       Delete
                     </button>
@@ -89,6 +77,7 @@ function Home() {
         </div>
       </div>
     </div>
+
   );
 }
 
