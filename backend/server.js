@@ -44,7 +44,7 @@ app.use(
 // route middleware
 app.use('/ministry', ministryRoute);
 app.use('/agrarian', agrarianRoute);
-app.use('/farmerOrg', farmersOrgRoute);
+app.use('/farmersOrg', farmersOrgRoute);
 
 app.listen(port, async () => {
   try {

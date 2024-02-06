@@ -32,20 +32,16 @@ router.post("/add", async (req, res) => {
       });
       await savedAgrarian.save();
       if (!savedAgrarian) {
-        res
-          .status(500)
-          .send({
-            status: "error",
-            error: "Failed to create agrarian service center",
-          });
+        res.status(500).send({
+          status: "error",
+          error: "Failed to create agrarian service center",
+        });
       }
 
-      res
-        .status(201)
-        .send({
-          status: "success",
-          message: "Agrarian service center created successfully",
-        });
+      res.status(201).send({
+        status: "success",
+        message: "Agrarian service center created successfully",
+      });
     }
   } catch (error) {
     console.error("Error creating user:", error.message);
