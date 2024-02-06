@@ -14,7 +14,7 @@ function Navbar() {
             </Link>
           </li>
           <li>
-        <Link to="/food">
+        <Link to="/farmersOrg">
           <i className="fas fa-hamburger"></i> Farmers' Organizations
             </Link>
           </li>
