@@ -20,7 +20,7 @@ const farmersOrgRoute = require("./routes/farmersOrg");
 
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 mongoose.connect(process.env.MONGO_URI);
 
@@ -41,6 +41,7 @@ app.use(
     parameterLimit: 50000,
   })
 );
+
 // route middleware
 app.use('/ministry', ministryRoute);
 app.use('/agrarian', agrarianRoute);

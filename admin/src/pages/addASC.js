@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "../../components/NavBar/navbar";
+import Navbar from "../components/NavBar/navbar";
 import { useState } from "react";
 import axios from "axios";
-import "./home.css";
+// import "./home.css";
 import { useNavigate } from "react-router-dom";
 
 function AddASC() {
@@ -62,11 +62,10 @@ function AddASC() {
       <Navbar />
       <div className="d-flex justify-content-center align-items-center">
         <div className="custom-container">
-          <div className="ascform">
+          <div className="form">
             <form>
-              <h2>Add Agrarian Service Center</h2>
               <div className="mb-2">
-                <label htmlFor="ascname">Admin Name</label>
+                <label htmlFor="name">Admin Name</label>
                 <input
                   type="text"
                   placeholder="Enter Agrarian Service Center admin Name"

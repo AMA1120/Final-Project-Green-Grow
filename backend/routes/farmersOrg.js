@@ -1,8 +1,8 @@
 const express = require("express");
-const Organization = require("../models/farmersOrg");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const FarmersOrg = require("../models/farmersOrg");
 const env = require("dotenv").config();
 
 router.post("/add", async (req, res) => {
@@ -10,11 +10,11 @@ router.post("/add", async (req, res) => {
     req.body;
   const encryptedPassword = await bcrypt.hash(password, 10);
   try {
-    const oldorganization = await Organization.findOne({ username });
+    const oldorganization = await FarmersOrg.findOne({ username });
     if (oldorganization) {
       res.status(403).send({ error: "User Exists" });
     } else {
-      const savedorganization = new Organization({
+      const savedorganization = new FarmersOrg({
         orgname,
         district,
         municipalcouncil,
@@ -40,10 +40,32 @@ router.post("/add", async (req, res) => {
   }
 });
 
+//login route
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  const organization = await FarmersOrg.findOne({ username });
+  if (!organization) {
+    return res.status(404).json({ error: "Farmers' organization not found" });
+  }
+
+  if (await bcrypt.compare(password, organization.password)) {
+    const token = jwt.sign(
+      { userId: organization._id, role: organization.role },
+      process.env.JWT_SECRET
+    );
+    res.status(200).send({ token });
+
+    // res.status(200).send(organization);
+  } else {
+    res.status(401).json({ error: "Incorrect password" });
+  }
+});
+
 //get all farmers' organizations
 router.get("/get", async (req, res) => {
   try {
-    const organization = await Organization.find();
+    const organization = await FarmersOrg.find();
     res.json(organization);
   } catch (error) {
     res.json({ message: error });
@@ -56,8 +78,8 @@ router.delete("/deleteFO/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const removedorganization = await Organization.findByIdAndDelete(id);
-    
+    const removedorganization = await FarmersOrg.findByIdAndDelete(id);
+
     if (!removedorganization) {
       return res.status(404).send({ error: "organization not found" });
     }

@@ -49,6 +49,28 @@ router.post("/add", async (req, res) => {
   }
 });
 
+//login route
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  const agrarian = await Agrarian.findOne({ username });
+  if (!agrarian) {
+    return res.status(404).json({ error: "Agrarian service center not found" });
+  }
+  if (await bcrypt.compare(password, agrarian.password)) {
+    const token = jwt.sign(
+      {
+        username: agrarian.username,
+        userID: agrarian._id,
+        role: agrarian.role,
+      },
+      process.env.JWT_SECRET
+    );
+    return res.status(200).json({ token });
+  } else {
+    return res.status(403).json({ error: "Wrong password" });
+  }
+});
+
 //get all agrarian service centers
 router.get("/get", async (req, res) => {
   try {
