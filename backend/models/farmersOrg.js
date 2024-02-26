@@ -2,6 +2,10 @@ const pkg = require("mongoose");
 const { Schema, model, models } = pkg;
 
 const FarmersOrganization = new Schema({
+  role: {
+    type: String,
+    default: "FarmersOrg",
+  },
   orgname: {
     type: String,
     required: [true, "Please provide a organization name"],

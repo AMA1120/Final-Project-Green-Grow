@@ -1,12 +1,13 @@
 import React from 'react';
 // import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/home';
-import AddASC from './pages/Home/addASC';
-import FarmersOrg from './pages/FO/farmersOrg';
-import AddFo from './pages/FO/addFO';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './pages/Login';
+import Home from './pages/home';
+import AddASC from './pages/addASC';
+import FarmersOrg from './pages/farmersOrg';
+import AddFO from './pages/addFO';
 
 
 function App() {
@@ -15,11 +16,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Home/>}/>
+          <Route index element={<Login/>}/>
           <Route path="/home" element={<Home />}/>
           <Route path="/addASC" element={<AddASC />}/>
           <Route path="/farmersOrg" element={<FarmersOrg />}/>
-          <Route path="/addFO" element={<AddFo />}/>
+          <Route path="/addFO" element={<AddFO />}/>
+          <Route path="/login" element={<Login />}/>
 
         </Routes>
       </BrowserRouter>

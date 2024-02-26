@@ -1,8 +1,7 @@
 import React from "react";
-import Navbar from "../../components/NavBar/navbar";
+import Navbar from "../components/NavBar/navbar";
 import { useState } from "react";
 import axios from "axios";
-import "./farmersOrg.css";
 import { useNavigate } from "react-router-dom";
 
 function AddFO() {
@@ -60,11 +59,11 @@ function AddFO() {
       <Navbar />
       <div className="d-flex justify-content-center align-items-center">
         <div className="custom-container">
-          <div className="foform">
+          <div className="form">
             <form>
               <h2>Add Farmers' Organization</h2>
               <div className="mb-2">
-                <label htmlFor="foname">Organization Name</label>
+                <label htmlFor="name">Organization Name</label>
                 <input
                   type="text"
                   placeholder="Enter farmers' Organization name"
