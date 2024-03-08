@@ -170,45 +170,106 @@
   }
 }
 
-/*login page Css*/
 
 /* Body background color and scrollbar */
 body {
-  background-color: palegoldenrod;/* Light gray background */
-  overflow: hidden; /* Hide scrollbar */
-  
-}
-
-.login-container {
-  background-color: palegoldenrod; /* Apply palegoldenrod background color */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 /* Login form container */
-.h-custom-2 {
-  min-height: 100vh; /* Full height */
-  min-width: 70vh; /* Half width */
-  background-color: palegoldenrod; /* White background for text side */
-  padding: 2rem; /* Add padding */
-  align-items: center; /* Center content vertically */
+.login-container {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  background-image: url('C:/Users/User/Documents/GitHub/Green-Grow/admin/src/assets/login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex; /* Added */
+  justify-content: center; /* Added */
+  align-items: center; /* Added */
+  height: 100vh; /* Added */
+  margin: 0; /* Added */
+  padding: 0; /* Added */
+}
+
+/* Login form */
+.login-form {
+  min-height: 40vh; /* Full height of viewport */
+  min-width: 35vw; /* Full width of viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: rgba(255,255,255,0.8); /* Added */
+  border-radius: 10px; /* Added */
 }
 
 /* Login heading */
-.mb-3 {
-  margin-bottom: 1.5rem !important; /* Adjust margin bottom */
-}
-
-/* Input fields */
-.mb-4 {
-  margin-bottom: 1.5rem !important; /* Adjust margin bottom */
-}
-
-/* Login button */
-.custom-btn {
-  background-color: #0f7016 !important; /* Dark green button color */
+.login-heading {
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
   
 }
 
-.custom-btn:hover {
-  background-color: #002a1f !important; /* Darker green on hover */
+/* Role label */
+.role-label {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
+/* Input fields */
+.input-field {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #070000;
+  margin-bottom: 1.5rem;
+}
+
+/* Login button */
+.login-btn {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0f7016;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover effect on login button */
+.login-btn:hover {
+  background-color: #002a1f;
+}
+
+/* CSS for transparent login image */
+.login-image {
+  object-fit: cover; /* Cover the entire column */
+  opacity: 0.5; /* Adjust the opacity as needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-form {
+    max-width: 90%;
+  }
+  
+  .login-heading {
+    font-size: 1.5rem;
+  }
+
+  .role-label {
+    font-size: 0.9rem;
+  }
+
+  .input-field {
+    font-size: 0.9rem;
+  }
+
+  .login-btn {
+    font-size: 0.9rem;
+  }
+}

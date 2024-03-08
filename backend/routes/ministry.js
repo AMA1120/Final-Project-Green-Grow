@@ -50,12 +50,41 @@ router.post("/login", async (req, res) => {
         userID: ministry._id,
         role: ministry.role,
       },
-      process.env.JWT_SECRET
+      process.env.JWT_SECRET,
+      {
+        expiresIn:"10m",
+      }
     );
     return res.status(200).json({ token });
   } else {
     return res.status(403).json({ error: "Wrong password" });
   }
 });
+
+// Authenticate user
+router.get("/protected", async (req, res) => {
+  try {
+    const authHeader = await req.headers.authorization;
+    // console.log(authHeader);
+    const token = authHeader.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+ 
+    // console.log(decoded.userId);
+ 
+    if (!decoded) {
+      return res.status(400).json({ message: "Expired. Unauthorized" });
+    } else if (decoded.exp < Date.now() / 1000) {
+      return res.status(400).json({ message: "Expired. Unauthorized" });
+    } else {
+      
+      // If the token is valid, return some protected data
+      return res.status(200).json({ data: "Protected data" });
+    }
+  } catch (error) {
+    console.log("Token Verification Error: ", error);
+    return res.status(400).json({ message: "Unauthorized" });
+  }
+});
+
 
 module.exports = router;

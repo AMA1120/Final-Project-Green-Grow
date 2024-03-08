@@ -1,19 +1,53 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/NavBar/navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { RoleProvider } from "../contexts/RoleContext";
 import axios from "axios";
-// import "./home.css";
+import Cookies from "js-cookie";
 
 function Home() {
   const [agrarian, setagrarian] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch data from the server
-    fetch("http://localhost:3000/agrarian/get")
-      .then((response) => response.json())
-      .then((agrarian) => setagrarian(agrarian))
-      .catch((error) => console.error("Error fetching agrarian data:", error));
-  }, []);
+    const token = Cookies.get("token");
+
+    if (!token) {
+      navigate("/login");
+    }
+
+    const validateAndGetData = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:3000/ministry/protected",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!res.statusText) {
+          Cookies.remove("token")
+          navigate("/login");
+        }
+      } catch (error) {
+        console.error(error);
+        Cookies.remove("token")
+        navigate("/login");
+      }
+
+      try {
+        const response = await axios.get("http://localhost:3000/agrarian/get");
+        setagrarian(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    validateAndGetData();
+  }, [navigate]);
 
   const deleteASC = async (id) => {
     try {
@@ -25,19 +59,19 @@ function Home() {
       console.error("Error deleting ASC:", error);
     }
   };
-
+  
 
   return (
     <div className="home-container">
+    <RoleProvider>
       <Navbar />
+    </RoleProvider>
       <div className="home-content">
-
-
         <div className="tbl-container">
           <h1>Agrarian Service Centers</h1>
           <Link to="/addASC" className="add-button">
-                + Add new Agrarian Service Center
-              </Link>
+            + Add new Agrarian Service Center
+          </Link>
           <table className="user-table">
             <thead>
               <tr>
@@ -62,10 +96,10 @@ function Home() {
                   <td>
                     <button
                       className="button2"
-                      onClick={() => { 
-                       deleteASC(agrarian._id);
-                      window.location.reload();
-                     }}
+                      onClick={() => {
+                        deleteASC(agrarian._id);
+                        window.location.reload();
+                      }}
                     >
                       Delete
                     </button>
@@ -77,7 +111,6 @@ function Home() {
         </div>
       </div>
     </div>
-
   );
 }
 
