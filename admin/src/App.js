@@ -8,6 +8,7 @@ import Home from './pages/home';
 import AddASC from './pages/addASC';
 import FarmersOrg from './pages/farmersOrg';
 import AddFO from './pages/addFO';
+import Farmers from './pages/farmers';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/home" element={<Home />}/>
           <Route path="/addASC" element={<AddASC />}/>
           <Route path="/farmersOrg" element={<FarmersOrg />}/>
+          <Route path="/farmers" element={<Farmers />}/>
           <Route path="/addFO" element={<AddFO />}/>
           <Route path="/login" element={<Login />}/>
 

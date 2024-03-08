@@ -1,47 +1,76 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { useRole } from '../../contexts/RoleContext';
+import { Link, useNavigate } from 'react-router-dom';
 import "./navbar.css";
+import Cookies from 'js-cookie';
 
 function Navbar() {
+  const role = useRole();
+  console.log("Role:", role);
+
+
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    Cookies.remove("token");
+    navigate("/login");
+  };
+
   return (
     <div className="admin-dashboard">
       <div className="sidebar">
-        
         <ul className="nav-menu">
+          {role === "ministry" && (
+            <>
+              <li>
+                <Link to="/home">
+                  <i className="fas fa-users"></i> Agrarian Service Centers
+                </Link>
+              </li>
+              <li>
+                <Link to="/farmersOrg">
+                  <i className="fas fa-users"></i> Farmers' Organizations
+                </Link>
+              </li>
+              <li>
+                <Link to="/farmers">
+                  <i className="fas fa-users"></i> Farmers
+                </Link>
+              </li>
+            </>
+          )}
+
+          {role === "asc" && (
+            <>
+              <li>
+                <Link to="/farmersOrg">
+                  <i className="fas fa-users"></i> Farmers' Organizations
+                </Link>
+              </li>
+              <li>
+                <Link to="/farmers">
+                  <i className="fas fa-users"></i> Farmers
+                </Link>
+              </li>
+            </>
+          )}
+
+          {role === "fo" && (
+            <>
+              <li>
+                <Link to="/farmers">
+                  <i className="fas fa-users"></i> Farmers
+                </Link>
+              </li>
+            </>
+          )}
+
           <li>
-        <Link to="/home">
-          <i className="fas fa-users"></i> Agrarian Service Centers
+            <Link to={"/login"} onClick={handleLogOut}>
+              <i className="fas fa-sign-out-alt"></i> Logout
             </Link>
           </li>
-          <li>
-        <Link to="/farmersOrg">
-          <i className="fas fa-hamburger"></i> Farmers' Organizations
-            </Link>
-          </li>
-          <li>
-        <Link to="/homepromotions">
-          <i className="fas fa-gift"></i> Farmers
-            </Link>
-          </li>
-          <li>
-        <Link to="/login">
-          <i className="fas fa-sign-out-alt"></i> Logout
-            </Link>
-          </li>
-          </ul>
-      </div>
-      
-      {/* Content area for rendering the pages */}
-      <div className="content">
-        {/* You can render the corresponding component based on the route */}
-        {/* For example, using React Router Switch and Route */}
-        {/* <Switch>
-          <Route path="/home" component={UsersComponent} />
-          <Route path="/food" component={FoodItemsComponent} />
-          <Route path="/homepromotions" component={PromotionsComponent} />
-          <Route path="/login" component={LoginComponent} />
-        </Switch> */}
-      
+        </ul>
       </div>
     </div>
   );
