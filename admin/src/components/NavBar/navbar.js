@@ -1,15 +1,20 @@
-import React from 'react';
-import { useRole } from '../../contexts/RoleContext';
-import { Link, useNavigate } from 'react-router-dom';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 
 function Navbar() {
-  const role = useRole();
-  console.log("Role:", role);
-
-
   const navigate = useNavigate();
+
+  const token = Cookies.get("token");
+  const decodedToken = jwtDecode(token);
+
+  console.log(decodedToken);
+
+  const { role } = decodedToken;
+
+  console.log(role);
 
   const handleLogOut = () => {
     Cookies.remove("token");
@@ -20,7 +25,7 @@ function Navbar() {
     <div className="admin-dashboard">
       <div className="sidebar">
         <ul className="nav-menu">
-          {role === "ministry" && (
+          {role === "Ministry" && (
             <>
               <li>
                 <Link to="/home">
@@ -40,7 +45,7 @@ function Navbar() {
             </>
           )}
 
-          {role === "asc" && (
+          {role === "AgrarianServCen" && (
             <>
               <li>
                 <Link to="/farmersOrg">
@@ -55,7 +60,7 @@ function Navbar() {
             </>
           )}
 
-          {role === "fo" && (
+          {role === "FarmersOrg" && (
             <>
               <li>
                 <Link to="/farmers">

@@ -11,10 +11,8 @@ function Farmers() {
           <h1>Farmers' Details</h1>
           <table className="user-table">
             <thead>
-
             </thead>
             <tbody>
-
             </tbody>
           </table>
         </div>
