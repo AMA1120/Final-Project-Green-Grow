@@ -202,11 +202,11 @@ const Login = () => {
             />
 
             <MDBBtn
-              className="mb-4 px-5 mx-5 w-100 custom-btn"
+              className="mb-4 px-5 mx-5 w-100 custom-btn bg-warning"
               size="lg"
               type="button"
               onClick={handleLogin}
-            >
+            > 
               Login
             </MDBBtn>
           </div>
