@@ -1,59 +1,468 @@
+body {
+    margin: 0;
+    background-color: #f5f5dc;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
 
-header {
+.page-tea-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.discover-tea-fullscreen {
+    display: flex;
+    height: 95vh;
+    width: 100vw;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.left-tea-content,
+.right-tea-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-tea-content {
+    background-color: #f5f5dc; /* Beige background */
+}
+
+.card-tea-header {
+    padding: 10px 20px;
     background-color: #333;
-    color: #fff;
+    color: white;
+}
+
+.card-tea-content {
+    padding: 2px 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center align content */
+}
+
+.card-tea-content h1 {
+    font-size: 36px; /* Adjusted for larger title */
+    font-weight: bold;
+    margin-bottom: 0; /* Removes default margin */
+    line-height: 1.2; /* Ensures the title is in 2 lines */
+}
+
+.card-tea-content p {
+    font-size: 26px; /* Smaller font size for paragraph */
+    color: #757272; /* Ash color */
+    margin-top: 0; /* Aligns closely with the title */
+    text-align: center; /* Center align paragraph */
+}
+
+.action-button {
+    background-color: #45493e; /* Dark green background */
+    border: none;
+    color: white;
+    padding: 10px 24px;
     text-align: center;
-    padding: 1em;
-  }
-  
-  main {
-    max-width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cinh2, h3, h5 {
-    color: #333;
-  }
-  
-  h2 {
-    border-bottom: 2px solid #333;
-    padding-bottom: 5px;
-    margin-top: 20px;
-  }
-  
-  p {
-    margin-bottom: 20px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-  }
-  
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px; /* Increased margin for more space */
+    border-radius: 20px; /* Curved edges for buttons */
+    transition: 0.3s;
+    cursor: pointer;
+}
 
-  
-  /* Style for the knowledge section */
-  .knowledge-section {
-    background-color: #f8f8f8;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-  }
-  
-  .knowledge-section h3 {
-    color: #4285f4;
+.action-button:hover {
+    background-color: #45a049;
+}
+
+.right-tea-image {
+    background: url("C:\Users\User\Documents\GitHub\Green-Grow\frontend\src\assets\tea.jpg")
+      no-repeat center center;
+    background-size: cover;
+}
+
+/* New styles for Origin Story card */
+.origin-story-tea-card {
+    display: flex;
+    width: 100vw; /* Increased width */
+    height: 65vh; /* Increased height */
+    margin-top: 20px; /* Space between cards */
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    border-radius: 10px; /* Larger border radius for a softer edge */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.origin-story-tea-card:hover {
+    transform: scale(0.98); /* Slight increase in size on hover */
+}
+
+.left-tea-section {
+    flex: 1;
+    padding: 30px; /* Increased padding for more space */
+    background-color: rgb(194, 186, 149); /* White background for text section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+}
+
+.left-tea-section h2 {
+    font-size: 36px; /* Larger font size for title */
+    font-weight: bold;
     margin-bottom: 15px;
-  }
-  
-  .knowledge-section p {
-    line-height: 1.5;
-  }
-  
+}
 
-  
+.left-tea-section p {
+    font-size: 18px; /* Larger font size for paragraph */
+    color: #333; /* Dark text for readability */
+    margin-bottom: 25px;
+}
+
+.more-history-button {
+    background-color: #45493e;
+    color: white;
+    padding: 15px 30px; /* Larger padding for a bigger button */
+    font-size: 18px; /* Larger font size for button text */
+    border-radius: 25px; /* More rounded corners for the button */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; /* Smooth background color transition on hover */
+}
+
+.more-history-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.testimonial {
+    background-color: #f0f0f0; /* Light grey background for testimonial */
+    padding: 15px; /* Increased padding for more space */
+    margin-top: 25px; /* Increased margin top for more space */
+    border-left: 4px solid #4caf50; /* Thicker accent line */
+    transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
+}
+
+.testimonial:hover {
+    border-color: #45a049; /* Darker green border on hover */
+}
+
+.right-tea-section {
+    flex: 1;
+    background: url("C:\\Users\\User\\Documents\\GitHub\\Green-Grow\\frontend\\src\\assets\\tea plants.jpg")
+      no-repeat center center;
+    background-size: cover;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for image opacity */
+}
+
+.right-tea-section:hover {
+    opacity: 0.9; /* Slight transparency on hover */
+}
+
+/* FAQ Container Styles */
+.faq-tea-container {
+    width: 100%;
+    padding: 40px;
+    background-color: #f5f5dc;
+    text-align: center;
+    font-family: "PT Sans", sans-serif; /* Modern font family */
+}
+
+.faq-tea-container h2 {
+    font-size: 36px;
+    color: black;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.faq-tea-container p {
+    font-size: 18px;
+    color: #3e3b3b;
+    margin-bottom: 40px;
+}
+
+.faq-tea-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-tea-item {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(194, 186, 149);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-tea-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.faq-tea-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: black;
+    text-align: left;
+}
+
+.faq-tea-item h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #121111;
+    text-align: left;
+}
+
+.faq-tea-item p {
+    font-size: 18px;
+    color: #5e5a5a;
+    text-align: left;
+}
+
+/* Fertilizer Table Styles */
+.fertilizer-tea-table {
+    margin-top: 20px;
+}
+
+.fertilizer-tea-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.fertilizer-tea-table th,
+.fertilizer-tea-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.fertilizer-tea-table th {
+    background-color: #45493e;
+    color: white;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .fertilizer-tea-table table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+.age-of-tea-plantation-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.age-of-tea-plantation-table th,
+.age-of-tea-plantation-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.age-of-tea-plantation-table th {
+    background-color: #45493e;
+    color: white;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .age-of-tea-plantation-table table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+.how-to-plant-tea-container {
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5dc; /* Beige background */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.how-to-plant-tea-container h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.how-to-plant-tea-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: rgb(66, 62, 62);
+}
+
+.steps-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.step-card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust as needed */
+    text-align: left;
+    display: flex; /* Added for flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    border-radius: 15px; /* Rounded corners for modern look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
+    padding: 25px;
+    margin: 15px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions for shadow and growth */
+}
+
+.step-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center; /* Center align the h3 elements */
+}
+
+.step-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: justify; /* Justify the p content */
+}
+
+.step-card:hover {
+    transform: scale(1.05); /* Slight growth on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+    background-color: rgb(194, 186, 149);
+}
+
+.learn-more-button {
+    background-color: #45493e;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px; /* More pronounced rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold; /* Bold font for button text */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth color change and growth on hover */
+    outline: none; /* Remove outline for cleaner look */
+}
+
+.learn-more-button:hover {
+    background-color: #45a049;
+    transform: scale(1.1); /* Button grows on hover */
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* Health Benefits Container Styles */
+.health-benefits-container {
+    width: 100vw; /* Set width to viewport width */
+    padding: 20px;
+    background-color: #d5d5b6; /* Soft beige background */
+    text-align: center;
+    box-sizing: border-box; /* Include padding in the width calculation */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.health-benefits-container h2 {
+    font-size: 36px;
+    color: #45493e;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.health-benefits-container p {
+    font-size: 18px;
+    color: #757272;
+    margin-bottom: 40px;
+}
+
+.benefits-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.benefit-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px; /* Adjust as needed */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    font-size: 48px; /* Large icon size */
+    margin-bottom: 20px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .page-tea-container {
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .discover-tea-fullscreen {
+        height: auto; /* Allow height to adjust based on content */
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .left-tea-content,
+    .right-tea-image {
+        flex: none; /* Reset flex property */
+        width: 100%; /* Occupy full width */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .left-tea-content {
+        order: 2; /* Move left content below right image */
+        background-color: #f5f5dc; /* Reset background color */
+    }
+
+    .right-tea-image {
+        order: 1; /* Move right image above left content */
+        background-position: top; /* Adjust background position */
+    }
+
+    .origin-story-tea-card,
+    .how-to-plant-tea-container,
+    .health-benefits-container {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .step-card {
+        width: 100%; /* Occupy full width */
+        margin: 10px 0; /* Adjust margin for spacing */
+    }
+
+    .fertilizer-tea-table,
+    .age-of-tea-plantation-table {
+        overflow-x: auto; /* Add horizontal scroll for tables on small screens */
+    }
+
+    .faq-tea-grid {
+        flex-direction: column; /* Stack FAQ items vertically */
+    }
+}
