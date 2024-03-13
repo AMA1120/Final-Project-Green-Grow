@@ -1,95 +1,85 @@
-
-*,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+.login-background {
+  background-image: url('C:\Users\User\Documents\GitHub\Green-Grow\frontend\src\assets\farmerlogin.jpg'); /* Update with the correct path */
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
-
-.background {
-  width: 430px;
-  height: 520px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-}
-
-.background .shape {
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  border-radius: 50%;
-}
-
-form {
-  height: 520px;
-  width: 400px;
-  background-color: rgba(7, 203, 0, 0.13);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
-}
-
-form * {
+.login-form {
+  background-color: rgba(195, 206, 194, 0.95);
+  padding: 50px;
+  border-radius: 20px;
+  width: 450px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   font-family: 'Poppins', sans-serif;
-  color: black;
-  letter-spacing: 0.5px;
-  outline: none;
-  border: none;
+  display: flex;
+  flex-direction: column;
+
 }
 
-form h3 {
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 42px;
+.login-form h3 {
+  color: #333;
+  margin-bottom: 30px;
   text-align: center;
+  font-size: 36px;
 }
 
-label {
-  display: block;
-  margin-top: 30px;
-  font-size: 16px;
-  font-weight: 500;
+.login-form label {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-input {
-  display: block;
-  height: 50px;
+.login-form input[type="text"],
+.login-form input[type="password"] {
   width: 100%;
-  background-color: rgba(10, 10, 10, 0.07);
-  border-radius: 3px;
-  padding: 0 10px;
-  margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-::placeholder {
-  color: gray;
-}
-
-.btn1 {
-  margin-top: 50px;
-  width: 100%;
-  background-color: rgb(138, 165, 135);
-  color: #080710;
-  padding: 15px 0;
-  font-size: 18px;
-  font-weight: 600;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  cursor: pointer;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  transition: input 0.3s;
 }
 
-.btn1:hover {
-  background-color: #080710;
-  color: #fff;
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: #7fac87;
 }
+
+.login-form .error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.login-btn {
+  background-color: #4f5b43;
+  color: #ece7e7;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 25px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #5e712a;
+}
+
+@media (min-width: 768px) {
+  .login-form {
+    margin: 0 auto;
+  }
+}
+
+
+
+

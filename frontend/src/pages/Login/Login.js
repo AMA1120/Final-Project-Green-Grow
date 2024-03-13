@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
 
-function Login  () {
+function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
@@ -35,17 +35,14 @@ function Login  () {
   };
 
   return (
-    <div className="background">
-      <div className="shape"></div>
-      <div className="shape"></div>
-
-      <form onSubmit={handleSubmit}>
+    <div className="login-background">
+      <form onSubmit={handleSubmit} className="login-form">
         <h3>Login Here</h3>
 
         <label htmlFor="username">Username</label>
         <input
           type="text"
-          placeholder="Email or Phone"
+          placeholder="enter username"
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -55,23 +52,19 @@ function Login  () {
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          placeholder="Password"
+          placeholder="enter password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         {errors.password && <span className="error">{errors.password}</span>}
 
-        <button type="submit" className="btn1">
-        <Link to="/Farmer">
-            Log In
-          </Link>
+        <button type="submit" className="login-btn">
+          Log In
         </button>
-
       </form>
     </div>
   );
-};
+}
 
 export default Login;
-
