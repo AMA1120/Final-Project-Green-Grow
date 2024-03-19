@@ -9,6 +9,7 @@ import AddASC from './pages/addASC';
 import FarmersOrg from './pages/farmersOrg';
 import AddFO from './pages/addFO';
 import Farmers from './pages/farmers';
+import AddFarmer from './pages/addFarmer';
 
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
           <Route path="/home" element={<Home />}/>
           <Route path="/addASC" element={<AddASC />}/>
           <Route path="/farmersOrg" element={<FarmersOrg />}/>
-          <Route path="/farmers" element={<Farmers />}/>
           <Route path="/addFO" element={<AddFO />}/>
+          <Route path="/farmers" element={<Farmers />}/>
+          <Route path="/addFarmer" element={<AddFarmer />}/>
           <Route path="/login" element={<Login />}/>
 
         </Routes>

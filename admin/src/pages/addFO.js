@@ -54,84 +54,126 @@ function AddFO() {
       console.log(error);
     }
   };
-  
 
   return (
     <div className="home-container">
       <Navbar />
-      <div className="d-flex justify-content-center align-items-center">
-        <div className="custom-container">
-          <div className="form">
-            <form>
-              <h2>Add Farmers' Organization</h2>
-              <div className="mb-2">
-                <label htmlFor="name">Organization Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter farmers' Organization name"
-                  className="form-control"
-                  value={orgname}
-                  onChange={(e) => setOrgname(e.target.value)}
-                />
-              </div>
-              <div className="mb-2">
-                <label htmlFor="district">District</label>
-                <input
-                  type="text"
-                  placeholder="Enter the district of the FO"
-                  className="form-control"
-                  value={district}
-                  onChange={(e) => setDistrict(e.target.value)}
-                />
-              </div>
-              <div className="mb-2">
-                <label htmlFor="municipalcouncil">Municipal Council</label>
-                <input
-                  type="text"
-                  placeholder="Enter the municipal council of the FO"
-                  className="form-control"
-                  value={municipalcouncil}
-                  onChange={(e) => setMunicipalcouncil(e.target.value)}
-                />
-              </div>
-              <div className="mb-2">
-                <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  placeholder="Enter the city of the FO"
-                  className="form-control"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                />
-              </div>
-              <div className="mb-2">
-                <label htmlFor="username">Username</label>
-                <input
-                  type="text"
-                  placeholder="Enter the username of the FO"
-                  className="form-control"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
-              <div className="mb-2">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  placeholder="Enter the password of the FO"
-                  className="form-control"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <button className="btn btn-success" onClick={handleSubmit}>
-                Submit
-              </button>
-            </form>
-          </div>
+      <div className="home-content">
+        <div
+          style={{
+            maxWidth: "700px",
+            margin: "0 auto",
+            alignItems: "center",
+            padding: "20px",
+            backgroundColor: "white",
+            borderRadius: "10px",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
+            Add Farmers' Organization
+          </h1>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Organization Name"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+              value={orgname}
+              onChange={(e) => setOrgname(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="District"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+              value={district}
+              onChange={(e) => setDistrict(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Municipal Council"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+              value={municipalcouncil}
+              onChange={(e) => setMunicipalcouncil(e.target.value)}
+            />
+
+            <input
+              type="text"
+              placeholder="City"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+
+            <input
+              type="text"
+              placeholder="Username"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="submit"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+                backgroundColor: "green",
+                color: "white",
+                cursor: "pointer",
+              }}
+            >
+              Add
+            </button>
+          </form>
         </div>
       </div>
     </div>
   );
 }
+
 export default AddFO;

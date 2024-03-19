@@ -2,15 +2,17 @@ import React from "react";
 import Navbar from "../components/NavBar/navbar";
 import { useState } from "react";
 import axios from "axios";
-// import "./home.css";
 import { useNavigate } from "react-router-dom";
 
-function AddASC() {
+function AddFarmer() {
   const [name, setName] = useState("");
-  const [province, setProvince] = useState("");
-  const [district, setDistrict] = useState("");
-  const [municipalcouncil, setMunicipalcouncil] = useState("");
-  const [city, setCity] = useState("");
+  const [NIC, setNIC] = useState("");
+  const [DOB, setDOB] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [farmlandSize, setFarmlandSize] = useState("");
+  const [farmlandLocation, setFarmlandLocation] = useState("");
+  const [landRegNo, setLandRegNo] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -21,10 +23,13 @@ function AddASC() {
     // Simple validation
     if (
       !name ||
-      !province ||
-      !district ||
-      !municipalcouncil ||
-      !city ||
+      !NIC ||
+      !DOB ||
+      !address ||
+      !phone ||
+      !farmlandSize ||
+      !farmlandLocation ||
+      !landRegNo ||
       !username ||
       !password
     ) {
@@ -33,24 +38,27 @@ function AddASC() {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/agrarian/add", {
+      const response = await axios.post("http://localhost:3000/farmers/add", {
         name,
-        province,
-        district,
-        municipalcouncil,
-        city,
+        NIC,
+        DOB,
+        address,
+        phone,
+        farmlandSize,
+        farmlandLocation,
+        landRegNo,
         username,
         password,
       });
       console.log(response.data);
       if (response.data.status === "error") {
-        alert("Failed to add Agrarian Service Center");
+        alert("Failed to add Farmer");
         return;
       }
 
       // Show success alert
-      alert("Agrarian Service Center added successfully!");
-      navigate("/home");
+      alert("Farmer added successfully!");
+      navigate("/farmers");
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +72,6 @@ function AddASC() {
           style={{
             maxWidth: "700px",
             margin: "0 auto",
-            alignItems: "center",
             padding: "20px",
             backgroundColor: "white",
             borderRadius: "10px",
@@ -72,14 +79,25 @@ function AddASC() {
           }}
         >
           <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
-            Add Agrarian Service Center
+            Add Farmer Here
           </h1>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Enter Agrarian Service Center admin Name"
+              placeholder="Name"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
               value={name}
               onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="NIC No."
               style={{
                 width: "100%",
                 padding: "10px",
@@ -87,13 +105,12 @@ function AddASC() {
                 border: "1px solid #ccc",
                 borderRadius: "5px",
               }}
+              value={NIC}
+              onChange={(e) => setNIC(e.target.value)}
             />
-
             <input
               type="text"
-              placeholder="Enter Province"
-              value={province}
-              onChange={(e) => setProvince(e.target.value)}
+              placeholder="DOB"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -101,13 +118,12 @@ function AddASC() {
                 border: "1px solid #ccc",
                 borderRadius: "5px",
               }}
+              value={DOB}
+              onChange={(e) => setDOB(e.target.value)}
             />
-
             <input
               type="text"
-              placeholder="Enter District"
-              value={district}
-              onChange={(e) => setDistrict(e.target.value)}
+              placeholder="Address"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -115,13 +131,12 @@ function AddASC() {
                 border: "1px solid #ccc",
                 borderRadius: "5px",
               }}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
             />
-
             <input
               type="text"
-              placeholder="Enter Municipal Council"
-              value={municipalcouncil}
-              onChange={(e) => setMunicipalcouncil(e.target.value)}
+              placeholder="Phone No."
               style={{
                 width: "100%",
                 padding: "10px",
@@ -129,13 +144,12 @@ function AddASC() {
                 border: "1px solid #ccc",
                 borderRadius: "5px",
               }}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
-
             <input
               type="text"
-              placeholder="Enter City"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
+              placeholder="Size of Farmland"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -143,27 +157,51 @@ function AddASC() {
                 border: "1px solid #ccc",
                 borderRadius: "5px",
               }}
+              value={farmlandSize}
+              onChange={(e) => setFarmlandSize(e.target.value)}
             />
-
             <input
               type="text"
-              placeholder="Enter Username"
+              placeholder="Farmland Location"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+              value={farmlandLocation}
+              onChange={(e) => setFarmlandLocation(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Land Reg no."
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+              value={landRegNo}
+              onChange={(e) => setLandRegNo(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Username"
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              style={{
-                width: "100%",
-                padding: "10px",
-                marginBottom: "15px",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
             />
-
             <input
               type="password"
-              placeholder="Enter Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -171,10 +209,12 @@ function AddASC() {
                 border: "1px solid #ccc",
                 borderRadius: "5px",
               }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-
             <button
               type="submit"
+              className="button"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -196,4 +236,4 @@ function AddASC() {
   );
 }
 
-export default AddASC;
+export default AddFarmer;
