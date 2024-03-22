@@ -31,8 +31,8 @@ function Farmers() {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>NIC No.</th>
-                <th>DOB</th>
+                <th>NIC</th>
+                <th>Date of Birth</th>
                 <th>Address</th>
                 <th>Phone No.</th>
                 <th>Size of Farmland</th>

@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    background-color: #f5f5dc;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+  
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .service-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Add more styles as needed */
+  }
+  
+  .service-image {
+    width: 50%;
+    height: 700px; /* Adjust the height as needed */
+    background-image: url('C:\\Users\\User\\Documents\\GitHub\\Green-Grow\\frontend\\src\\assets\\far1.jpg'); /* Corrected path to your image */
+    background-size: cover;
+    background-position: center;
+    /* Add more styles as needed */
+  }
+  
+  .service-text {
+    width: 50%;
+    padding-left: 20px;
+    /* This adds some space between the text and the image */
+  }
+  
+  .service-text h1 {
+    font-size: 38px; /* Adjusted for larger title */
+    font-weight: bold;
+    margin-bottom: 0; /* Removes default margin */
+    line-height: 1.2; /* Ensures the title is in 2 lines */
+  }
+  
+  .service-text p {
+    font-size: 26px; /* Smaller font size for paragraph */
+    color: #757272; /* Ash color */
+    margin-top: 0; /* Aligns closely with the title */
+    text-align: center; /* Center align paragraph */
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: center; /* Centers the buttons */
+    width: 100%; /* Ensures the buttons container spans the full width */
+  }
+  
+  .action1-button {
+    background-color: #45493e; /* Dark green background */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px; /* Increased margin for more space */
+    border-radius: 20px; /* Curved edges for buttons */
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  .action1-button:hover {
+    background-color: #45a049;
+  }
+  
+  .exclusive-services-card {
+    background-color: #f8f8f8; /* Light grey background */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto; /* Adjust the height as needed */
+  }
+  
+  .services-list {
+    list-style: none; /* Removes default list styling */
+    padding: 0;
+  }
+  
+  .services-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between list items */
+  }
+  
+  .services-list img {
+    margin-right: 10px;
+    width: 32px; /* Example size, adjust as needed */
+    height: 32px; /* Example size, adjust as needed */
+  }
+  
+  .more-info-button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Makes the button a block element */
+    width: 100%; /* Full width */
+    text-align: center; /* Centers the text */
+    margin-top: 20px; /* Space from the list */
+  }
+  
+  .more-info-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+
+  .icon {
+    font-size: 24px; /* Adjust size as needed */
+    margin-right: 10px; /* Space between icon and text */
+  }
+  

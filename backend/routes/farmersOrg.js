@@ -90,7 +90,6 @@ router.delete("/deleteFO/:id", async (req, res) => {
   }
 });
 
-
 // Authenticate user
 router.get("/protected", async (req, res) => {
   try {
@@ -98,9 +97,9 @@ router.get("/protected", async (req, res) => {
     // console.log(authHeader);
     const token = authHeader.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
- 
+
     // console.log(decoded.userId);
- 
+
     if (!decoded) {
       return res.status(400).json({ message: "Expired. Unauthorized" });
     } else if (decoded.exp < Date.now() / 1000) {
@@ -114,6 +113,5 @@ router.get("/protected", async (req, res) => {
     return res.status(400).json({ message: "Unauthorized" });
   }
 });
-
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Farmer.css';
 
-function Farmer() {
+function FarmerHome() {
   return (
     <div>
       
@@ -9,4 +9,4 @@ function Farmer() {
   )
 }
 
-export default Farmer
+export default FarmerHome

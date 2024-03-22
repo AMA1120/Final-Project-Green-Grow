@@ -82,22 +82,23 @@ function AddFarmer() {
             Add Farmer Here
           </h1>
           <form onSubmit={handleSubmit}>
+            Name
             <input
               type="text"
-              placeholder="Name"
+              placeholder="Enter Name"
               style={{
                 width: "100%",
                 padding: "10px",
                 marginBottom: "15px",
                 border: "1px solid #ccc",
                 borderRadius: "5px",
-              }}
+              }} 
               value={name}
               onChange={(e) => setName(e.target.value)}
-            />
+            />National ID no.
             <input
               type="text"
-              placeholder="NIC No."
+              placeholder="Enter NIC No."
               style={{
                 width: "100%",
                 padding: "10px",
@@ -107,10 +108,10 @@ function AddFarmer() {
               }}
               value={NIC}
               onChange={(e) => setNIC(e.target.value)}
-            />
+            /> Date of Birth
             <input
-              type="text"
-              placeholder="DOB"
+              type="date"
+              placeholder="Enter DOB"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -120,10 +121,10 @@ function AddFarmer() {
               }}
               value={DOB}
               onChange={(e) => setDOB(e.target.value)}
-            />
+            />Address
             <input
               type="text"
-              placeholder="Address"
+              placeholder="Enter Address"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -133,10 +134,10 @@ function AddFarmer() {
               }}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-            />
+            />Phone No.
             <input
               type="text"
-              placeholder="Phone No."
+              placeholder="Enter Phone No."
               style={{
                 width: "100%",
                 padding: "10px",
@@ -146,7 +147,7 @@ function AddFarmer() {
               }}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-            />
+            />Size of Farmland
             <input
               type="text"
               placeholder="Size of Farmland"
@@ -159,10 +160,10 @@ function AddFarmer() {
               }}
               value={farmlandSize}
               onChange={(e) => setFarmlandSize(e.target.value)}
-            />
+            />Farmland Location
             <input
               type="text"
-              placeholder="Farmland Location"
+              placeholder="Enter Farmland Location"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -172,10 +173,10 @@ function AddFarmer() {
               }}
               value={farmlandLocation}
               onChange={(e) => setFarmlandLocation(e.target.value)}
-            />
+            />Land Reg no.
             <input
               type="text"
-              placeholder="Land Reg no."
+              placeholder="Enter Land Reg no."
               style={{
                 width: "100%",
                 padding: "10px",
@@ -185,10 +186,10 @@ function AddFarmer() {
               }}
               value={landRegNo}
               onChange={(e) => setLandRegNo(e.target.value)}
-            />
+            />Username
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Enter Username"
               style={{
                 width: "100%",
                 padding: "10px",
@@ -198,10 +199,10 @@ function AddFarmer() {
               }}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-            />
+            />Password
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Enter Password"
               style={{
                 width: "100%",
                 padding: "10px",

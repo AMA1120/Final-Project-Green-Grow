@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import axios from 'axios'; 
+import { useHistory } from 'react-router-dom'; // Import useHistory for redirection
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const history = useHistory(); // Get history object for redirection
 
-  const validateForm = () => {
-    const errors = {};
-
-    if (!username.trim()) {
-      errors.username = 'Username is required';
-    }
-
-    if (!password.trim()) {
-      errors.password = 'Password is required';
-    }
-
-    setErrors(errors);
-
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      // Perform login logic here
-      console.log('Login successful');
-    } else {
-      console.log('Form validation failed');
+    try {
+      const response = await axios.post('http://localhost:3000/farmers/login', {
+        username,
+        password,
+      });
+
+      // Assuming the backend responds with a success status code (e.g., 200)
+      if (response.status === 200) {
+        // Redirect the user to the FarmerHome page
+        history.push('/farmer');
+        console.log('Login successful');
+      } else {
+        // Handle login failure (e.g., display error message)
+        alert('Invalid username or password');
+        console.log('Login failed');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      // Handle error (e.g., display error message)
     }
   };
 
@@ -42,7 +42,7 @@ function Login() {
         <label htmlFor="username">Username</label>
         <input
           type="text"
-          placeholder="enter username"
+          placeholder="Enter username"
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -52,14 +52,14 @@ function Login() {
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          placeholder="enter password"
+          placeholder="Enter password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         {errors.password && <span className="error">{errors.password}</span>}
 
-        <button type="submit" className="login-btn">
+        <button type="submit" className="login-btn" >
           Log In
         </button>
       </form>
