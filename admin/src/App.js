@@ -10,6 +10,8 @@ import FarmersOrg from './pages/farmersOrg';
 import AddFO from './pages/addFO';
 import Farmers from './pages/farmers';
 import AddFarmer from './pages/addFarmer';
+import Articles from './pages/articles';
+import AddArticle from './pages/addArticle';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/addFO" element={<AddFO />}/>
           <Route path="/farmers" element={<Farmers />}/>
           <Route path="/addFarmer" element={<AddFarmer />}/>
+          <Route path="/articles" element={<Articles />}/>
+          <Route path="/addArticle" element={<AddArticle />}/>
           <Route path="/login" element={<Login />}/>
 
         </Routes>

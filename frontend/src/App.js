@@ -7,6 +7,8 @@ import Login from './pages/Login/Login.js';
 import Farmer from './pages/FarmerHome/Farmer.js';
 import Cinnamon from './pages/Cinnamon/cinnamon.js';
 import Tea from './pages/Tea/tea.js';
+import Serivce from './pages/Services/service.js';
+import FarmerHome from './pages/FarmerHome/Farmer.js';
 
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
         <Route path='/Farmer' component={Farmer} />
         <Route path='/Cinnamon' component={Cinnamon} />
         <Route path='/Tea' component={Tea} />
+        <Route path='/Serivce' component={Serivce} />
+        <Route path='/FarmerHome' component={FarmerHome} />
 
       </Switch>
     </Router>

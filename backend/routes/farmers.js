@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Farmers = require("../models/farmer");
+const Farmers = require("../models/farmers");
 const env = require("dotenv").config();
 
 router.post("/add", async (req, res) => {
@@ -20,11 +20,11 @@ router.post("/add", async (req, res) => {
   } = req.body;
   const encryptedPassword = await bcrypt.hash(password, 10);
   try {
-    const oldFarmer = await Farmer.findOne({ username });
+    const oldFarmer = await Farmers.findOne({ username });
     if (oldFarmer) {
       res.status(403).send({ error: "User Exists" });
     } else {
-      const savedFarmer = new Farmer({
+      const savedFarmer = new Farmers({
         name,
         NIC,
         DOB,
@@ -58,7 +58,7 @@ router.post("/add", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
-  const farmer = await Farmer.findOne({ username });
+  const farmer = await Farmers.findOne({ username });
   if (!farmer) {
     return res.status(404).json({ error: "Farmer not found" });
   }
@@ -75,9 +75,8 @@ router.post("/login", async (req, res) => {
 
 //get all farmers
 router.get("/get", async (req, res) => {
-  const farmers = await Farmer.find({});
+  const farmers = await Farmers.find({});
   res.status(200).send(farmers);
 });
 
 module.exports = router;
-

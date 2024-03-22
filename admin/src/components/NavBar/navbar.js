@@ -42,6 +42,11 @@ function Navbar() {
                   <i className="fas fa-users"></i> Farmers
                 </Link>
               </li>
+              <li>
+                <Link to="/articles">
+                  <i className="fas fa-newspaper"></i> Articles
+                </Link>
+              </li>
             </>
           )}
 

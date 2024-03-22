@@ -53,7 +53,7 @@ function Cinnamon() {
             </div>
           </div>
         </div>
-        <div className="right-image">{/* Image would go here */}</div>
+        <div className="right-image"></div>
       </div>
       {/* New container: Cinnamon FAQ */}
       <div className="faq-container">
