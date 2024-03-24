@@ -26,32 +26,27 @@ function AddArticle() {
     };
   };
 
-    const newArticle = {
-      title,
-      content,
-      category,
-      image,
-    };
-    const uploadImage = async (e) => {
-        e.preventDefault();
-
+  const uploadImage = async (e) => {
+    e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:3000/addArticle",
-        newArticle
-      );
+      const response = await axios.post("http://localhost:3000/article/add", {
+        title,
+        content,
+        category,
+        image,
+      });
       console.log(response.data);
       navigate("/articles");
     } catch (error) {
-      console.error("Error adding article:", error);
+      console.error("Error during fetch:", error);
     }
-  };
+  }
+  
 
   return (
     <div className="home-container">
       <Navbar />
       <div className="home-content">
-      <form onSubmit={uploadImage}>
         <div
           style={{
             maxWidth: "700px",
@@ -65,6 +60,8 @@ function AddArticle() {
           <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
             Add Article
           </h1>
+          <form onSubmit={uploadImage}>
+          <div className="form-group">
               <label htmlFor="title">Title</label>
               <input
                 type="text"
@@ -140,6 +137,7 @@ function AddArticle() {
           </form>
         </div>
       </div>
+    </div>
     
   );
 }

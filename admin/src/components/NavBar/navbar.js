@@ -47,6 +47,11 @@ function Navbar() {
                   <i className="fas fa-newspaper"></i> Articles
                 </Link>
               </li>
+              <li>
+                <Link to="/fertilizerDelivery">
+                  <i className="fas fa-truck"></i> Fertilizer Delivery Status
+                </Link>
+              </li>
             </>
           )}
 
