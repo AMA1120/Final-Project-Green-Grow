@@ -14,6 +14,7 @@ const AgrarianServiceCenter = require("./models/agrarianServCen");
 const FarmersOrganization = require("./models/farmersOrg");
 const Farmers = require("./models/farmers");
 const Article = require("./models/article");
+const FertilizerDeliveries = require("./models/fertilizerdelivery");
 
 // Import Routes
 const ministryRoute = require("./routes/ministry");
@@ -21,6 +22,7 @@ const agrarianRoute = require("./routes/agrarianServCen");
 const farmersOrgRoute = require("./routes/farmersOrg");
 const farmersRoute = require("./routes/farmers");
 const ArticleRoute = require("./routes/article");
+const fertilizerDeliveryRoute = require("./routes/fertilizerdelivery");
 
 
 dotenv.config();
