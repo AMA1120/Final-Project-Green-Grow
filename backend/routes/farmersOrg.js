@@ -22,6 +22,7 @@ router.post("/add", async (req, res) => {
         username,
         password: encryptedPassword,
       });
+
       await savedorganization.save();
       if (!savedorganization) {
         res.status(500).send({
@@ -99,7 +100,6 @@ router.get("/protected", async (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // console.log(decoded.userId);
-
     if (!decoded) {
       return res.status(400).json({ message: "Expired. Unauthorized" });
     } else if (decoded.exp < Date.now() / 1000) {

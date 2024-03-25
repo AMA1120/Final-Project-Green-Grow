@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar.js';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home/Home.js';
 import Login from './pages/Login/Login.js';
 import Farmer from './pages/FarmerHome/Farmer.js';

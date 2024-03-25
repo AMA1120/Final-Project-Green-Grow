@@ -15,8 +15,8 @@ const FertilizerDelivery = new Schema({
         required: [true, "Please provide a delivery date"],
     },
     status: {
-        type: String,
-        required: [true, "Please provide a status"],
+        type: Number,
+        default: 0, // 0: pending, 1: Ministry 2: ASC
     },
 });
 

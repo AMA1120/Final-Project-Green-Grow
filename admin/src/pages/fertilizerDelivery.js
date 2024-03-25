@@ -1,47 +1,62 @@
-import React, { useState } from 'react';
-import Navbar from '../components/NavBar/navbar';
-import { Modal, Button, Table } from 'react-bootstrap';
-import axios from 'axios';
+import React, { useState } from "react";
+import Navbar from "../components/NavBar/navbar";
+import { Modal, Button, Table } from "react-bootstrap";
+import axios from "axios";
+import { useEffect } from "react";
 
 function FertilizerDelivery() {
-  const [deliveries, setDeliveries] = useState([
-    // Sample data, replace with your actual data
-    { id: 1, fertilizerName: 'Fertilizer A', quantity: '500KG', deliveryDate: '24/03/2024', status: 'Pending' },
-    { id: 2, fertilizerName: 'Fertilizer B', quantity: '800KG', deliveryDate: '24/03/2024', status: 'Received' },
-    // Add more deliveries here
-  ]);
+  const [deliveries, setDeliveries] = useState([]);
+
+  useEffect(() => {
+    const fetchDeliveries = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/fertilizerdelivery/get"
+        );
+        console.log(response.data);
+        setDeliveries(response.data);
+      } catch (error) {
+        console.error("Error fetching deliveries:", error);
+      }
+    };
+
+    fetchDeliveries();
+  }, []);
+
   const [selectedDelivery, setSelectedDelivery] = useState(null);
 
   const handleModalClose = () => setSelectedDelivery(null);
   const handleModalShow = (delivery) => setSelectedDelivery(delivery);
 
-  const updateDeliveryStatus = (deliveryId, currentStatus) => {
-    const newStatus = currentStatus === 'Pending' ? 'Received' : 'Pending';
-  
-    axios.post('/update-delivery-status', { id: deliveryId, newStatus })
-      .then(response => {
-        // Assuming the backend sends back the updated delivery object
-        const updatedDelivery = response.data.updatedDelivery;
-  
-        // Update the local state with the new delivery status
-        setDeliveries(deliveries.map(delivery => 
-          delivery.id === updatedDelivery.id ? updatedDelivery : delivery
-        ));
+  const updateDeliveryStatus = (id) => {
+    axios
+      .put(`http://localhost:3000/fertilizerdelivery/updateministry/${id}`)
+      .then((response) => {
+        if (response.status !== 200) {
+          console.error("Error updating status:", response.data);
+        }
+
+        const { savedDelivery } = response.data;
+
+        setDeliveries(
+          deliveries.map((delivery) =>
+            delivery._id === savedDelivery._id ? savedDelivery : delivery
+          )
+        );
       })
-      .catch(error => {
-        console.error('Error updating status:', error);
+      .catch((error) => {
+        console.error("Error updating status:", error);
       });
-  
+
     handleModalClose();
   };
-  
 
   return (
     <>
-      <div className='home-container'>
+      <div className="home-container">
         <Navbar />
-        <div className='home-content'>
-          <div className='tbl-container'>
+        <div className="home-content">
+          <div className="tbl-container">
             <h1>Fertilizer Delivery Status</h1>
             <Table striped bordered hover>
               <thead>
@@ -49,46 +64,63 @@ function FertilizerDelivery() {
                   <th>ID</th>
                   <th>Fertilizer Name</th>
                   <th>Quantity</th>
-                  <th>Delivery Date</th>
+                  <th>Delivery Date (on or before)</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {deliveries.map((delivery) => (
-                  <tr key={delivery.id}>
-                    <td>{delivery.id}</td>
-                    <td>{delivery.fertilizerName}</td>
-                    <td>{delivery.quantity}</td>
-                    <td>{delivery.deliveryDate}</td>
-                    <td>{delivery.status}</td>
-                    <td>
-                      <Button variant='primary' onClick={() => handleModalShow(delivery)}>
-                        Update Status
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
+                {deliveries.length > 0 &&
+                  deliveries.map((delivery, index) => (
+                    <tr key={delivery.id}>
+                      <td>{index + 1}</td>
+                      <td>{delivery.fertilizerName}</td>
+                      <td>{delivery.quantity}</td>
+                      <td>
+                        {new Date(delivery.deliveryDate).toLocaleDateString()}
+                      </td>
+                      <td>
+                        {delivery.status === 0
+                          ? "Pending"
+                          : delivery.status === 1
+                          ? "Ministry"
+                          : "ASC"}
+                      </td>
+                      <td>
+                        <Button
+                          variant="primary"
+                          onClick={() => handleModalShow(delivery)}
+                        >
+                          Update Status
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </Table>
           </div>
         </div>
       </div>
 
-    <Modal show={!!selectedDelivery} onHide={handleModalClose}>
+      <Modal show={!!selectedDelivery} onHide={handleModalClose}>
         <Modal.Header closeButton>
-            <Modal.Title>Update Delivery Status</Modal.Title>
+          <Modal.Title>Update Delivery Status</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Are you sure you want to update the status of this delivery?</Modal.Body>
+        <Modal.Body>
+          Are you sure you want to update the status of this delivery?
+        </Modal.Body>
         <Modal.Footer>
-            <Button variant='secondary' onClick={handleModalClose}>
-                Close
-            </Button>
-            <Button variant='primary' onClick={() => updateDeliveryStatus(selectedDelivery.id, selectedDelivery.status)}>
-                Save Changes
-            </Button>
+          <Button variant="secondary" onClick={handleModalClose}>
+            Close
+          </Button>
+          <Button
+            variant="primary"
+            onClick={() => updateDeliveryStatus(selectedDelivery._id)}
+          >
+            Save Changes
+          </Button>
         </Modal.Footer>
-    </Modal>
+      </Modal>
     </>
   );
 }
