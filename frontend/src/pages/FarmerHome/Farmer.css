@@ -1,10 +1,69 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'PT Sans', sans-serif;
-  }
-  
-  body {
-    background: linear-gradient(90deg, rgb(212, 248, 215) 0%, rgb(226, 222, 170) 100%);
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    rgb(212, 248, 215) 0%,
+    rgb(226, 222, 170) 100%
+  );
+}
+
+.card {
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform: translateY(-10px);
+}
+.card-body {
+  height: 400px;
+  transition: transform 0.3s ease; /* Add transition */
+}
+
+.card:hover {
+  transform: translateY(0); /* Move the card up */
+}
+.contact-us-container {
+  background-color: #e2f6d5; /* Light gray background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
+}
+
+.contact-us-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-us-form {
+  width: 100%;
+}
+
+.problem-type-select,
+.message-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2e482c; /* Blue button color */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.submit-button:hover {
+  background-color: #377343; /* Darker blue on hover */
+}

@@ -10,6 +10,7 @@ const MinistrySchema = new Schema({
     type: String,
     required: [true, "Please provide a name"],
   },
+
   email: {
     type: String,
     required: [true, "Please provide an email"],

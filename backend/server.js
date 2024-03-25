@@ -55,6 +55,7 @@ app.use('/agrarian', agrarianRoute);
 app.use('/farmersOrg', farmersOrgRoute);
 app.use('/farmers', farmersRoute);
 app.use('/article', ArticleRoute);
+app.use('/fertilizerdelivery', fertilizerDeliveryRoute);
 
 app.listen(port, async () => {
   try {

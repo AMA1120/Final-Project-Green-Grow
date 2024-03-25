@@ -1,6 +1,6 @@
 .navbar {
   background: linear-gradient(90deg, rgb(63, 129, 67) 0%, rgb(156, 149, 50) 100%);
-  height: 80px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@
   z-index: 999;
 }
 
-.navbar-container {
+.navbar-con {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@
 .navbar-logo {
   color: #fff;
   justify-self: start;
-  margin-left: 20px;
+  margin-left: 90px;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
@@ -39,15 +39,17 @@
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
   list-style: none;
-  text-align: center;
+  text-align: right;
   width: 60vw;
   justify-content: end;
-  margin-right: 2rem;
+  margin-left: 9rem;
 }
 
-.nav-item {
+.nav-items {
   height: 80px;
+  font-size: 20px;
 }
+
 
 .nav-links {
   color: #fff;

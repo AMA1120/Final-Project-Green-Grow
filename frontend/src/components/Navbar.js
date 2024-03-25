@@ -33,7 +33,7 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <div className="navbar-container">
+        <div className="navbar-con">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             Green-Grow
             <i className="fab fa-typo3" />
@@ -45,7 +45,7 @@ function Navbar() {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             {loggedIn ? (
               <>
-                <li className="nav-item">
+                <li className="nav-items">
                   <Link
                     to="/myprofile"
                     className="nav-links"
@@ -54,20 +54,20 @@ function Navbar() {
                     My Profile
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-items">
                   <button className="nav-links-mobile" onClick={handleLogout}>
                     Log Out
                   </button>
                 </li>
               </>
             ) : (
-              <li className="nav-item">
+              <li className="nav-items">
                 <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                   Home
                 </Link>
               </li>
             )}
-            <li className="nav-item">
+            <li className="nav-items">
               <Link
                 to="/Serivce"
                 className="nav-links"
@@ -76,10 +76,17 @@ function Navbar() {
                 Services
               </Link>
             </li>
+
+            <li className="nav-items">
+              <Link
+                to="/Login"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Log In
+              </Link>
+            </li>
           </ul>
-          {!loggedIn && button && (
-            <Button buttonStyle="btn--outline">LOG IN</Button>
-          )}
         </div>
       </nav>
     </>
