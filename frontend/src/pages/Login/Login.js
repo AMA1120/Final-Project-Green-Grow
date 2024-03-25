@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'; // Import useHistory for redirect
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
   const history = useHistory(); // Get history object for redirection
 
   const handleSubmit = async (e) => {
