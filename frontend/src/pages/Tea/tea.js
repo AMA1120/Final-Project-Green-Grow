@@ -66,7 +66,7 @@ function tea() {
               to the plant's specific nutrient needs for healthy growth. Organic
               fertilizers like compost or well-rotted manure enrich the soil
               with essential nutrients and improve its structure, fostering
-              microbial activity beneficial for tea plants. Additionally, a
+              {/* microbial activity beneficial for tea plants. Additionally, a
               balanced mineral fertilizer containing nitrogen, phosphorus, and
               potassium, along with micronutrients like magnesium and calcium,
               supports various aspects of tea plant development, including leaf
@@ -75,7 +75,7 @@ function tea() {
               guiding fertilizer application to meet the tea plant's
               requirements accurately. Regular monitoring of plant health and
               soil fertility enables adjustments in fertilizer use throughout
-              the planting cycle, optimizing tea yield and quality.
+              the planting cycle, optimizing tea yield and quality. */}
             </p>
           </div>
           <div className="faq-tea-item">
@@ -85,7 +85,7 @@ function tea() {
               conditions to thrive optimally. In terms of soil, cinnamon can be
               grown in various types, ranging from silver sands in Negombo to
               loamy and lateritic gravelly soils in the southern coastal belt
-              and interior regions. The quality of cinnamon bark is influenced
+              {/* and interior regions. The quality of cinnamon bark is influenced
               by soil composition, with the best quality typically produced in
               white sandy soils. However, skilled peelers can produce the
               highest-grade "Alba" cinnamon, characterized by small diameter
@@ -103,7 +103,7 @@ function tea() {
               to regions with rainfall ranging from 1,750 to 3,500 mm per annum.
               However, prolonged dry periods are not suitable for cinnamon
               cultivation, emphasizing the importance of consistent moisture
-              availability in its environment.
+              availability in its environment. */}
             </p>
           </div>
           <div className="faq-tea-item">
@@ -114,7 +114,7 @@ function tea() {
               a year during the onset of the Yala and Maha rainy seasons,
               ensures optimal soil nutrition for robust plant growth. In areas
               with soil pH levels below 4.5, dolomite is applied at a specified
-              rate to rectify acidity issues. Weeding, an integral task in tea
+              {/* rate to rectify acidity issues. Weeding, an integral task in tea
               farming, varies with plantation age—clean weeding is advised for
               young plantations, while slash weeding, carried out 2-3 times
               annually, benefits mature crops. Additionally, soil conservation
@@ -123,7 +123,7 @@ function tea() {
               aimed at fostering a well-structured plant canopy and enhancing
               stem growth by removing excess lateral branches and weak shoots
               post-harvest. These practices collectively contribute to
-              sustaining healthy tea crops and optimizing yield quality.
+              sustaining healthy tea crops and optimizing yield quality. */}
             </p>
             <p>Recommended fertilizer mixture – 900 kg/ha/yr</p>
             <div className="fertilizer-tea-table">
