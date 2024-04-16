@@ -13,6 +13,7 @@ import AddFarmer from './pages/addFarmer';
 import Articles from './pages/articles';
 import AddArticle from './pages/addArticle';
 import FertilizerDelivery from './pages/fertilizerDelivery';
+import Messages from './pages/messages';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/articles" element={<Articles />}/>
           <Route path="/addArticle" element={<AddArticle />}/>
           <Route path="/fertilizerDelivery" element={<FertilizerDelivery />}/>
+          <Route path="/messages" element={<Messages />}/>
           <Route path="/login" element={<Login />}/>
 
         </Routes>

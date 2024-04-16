@@ -18,7 +18,9 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   transform: translateY(-10px);
+  background-color: rgb(213, 244, 151);
 }
+
 .card-body {
   height: 400px;
   transition: transform 0.3s ease; /* Add transition */
@@ -27,8 +29,9 @@ body {
 .card:hover {
   transform: translateY(0); /* Move the card up */
 }
+
 .contact-us-container {
-  background-color: #e2f6d5; /* Light gray background */
+  background-color: rgb(168, 195, 148);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation effect */
@@ -65,5 +68,70 @@ body {
 }
 
 .submit-button:hover {
-  background-color: #377343; /* Darker blue on hover */
+  background-color: #5c8f32; /* Darker blue on hover */
+}
+
+.articles-panel {
+  background-color: rgb(146, 191, 107);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.articles-panel h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.article-card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+}
+
+.article-card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.article-card .card-body {
+  height: 300px;
+  overflow: hidden;
+}
+
+.article-card .card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.article-card .card-text {
+  color: #666;
+  align-items: justify;
+  text-align: justify;
+}
+
+.see-more-button {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2e482c; /* Greenish button color */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.see-more-button:hover {
+  background-color: #377343; /* Darker green on hover */
 }
