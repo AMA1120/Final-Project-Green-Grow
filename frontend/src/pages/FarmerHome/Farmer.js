@@ -1,19 +1,54 @@
 import React, { useState, useEffect } from "react";
 import "./Farmer.css";
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Button, Card, Form } from "react-bootstrap";
+import axios from "axios";
 import Footer from "../../components/Footer";
-import { Form } from "react-bootstrap";
 
 function FarmerHome() {
   const [farmers, setFarmers] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const [problemType, setProblemType] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     // Fetch data from the server
-    fetch("http://localhost:3000/farmers/get")
-      .then((response) => response.json())
-      .then((farmers) => setFarmers(farmers))
-      .catch((error) => console.error("Error fetching farmer data:", error));
+    const fetchFarmers = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/farmers/get");
+        setFarmers(response.data);
+      } catch (error) {
+        console.error("Error fetching farmer data:", error);
+      }
+    };
+
+    const fetchArticles = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/article/get");
+        setArticles(response.data);
+      } catch (error) {
+        console.error("Error fetching articles:", error);
+      }
+    };
+
+    fetchFarmers();
+    fetchArticles();
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:3000/messages/submit", {
+        problemType,
+        message,
+      });
+      alert("Your message has been submitted successfully!");
+      // Reset form fields
+      setProblemType("");
+      setMessage("");
+    } catch (error) {
+      console.error("Error submitting message:", error);
+    }
+  };
 
   return (
     <>
@@ -57,44 +92,81 @@ function FarmerHome() {
             <Button variant="secondary">Edit Profile</Button>
           </Col>
         </Row>
+        <br />
+        <br />
+        <h2>Track Your Fertilizer</h2>
         <Row className="mt-5">
           <Col md={4}>
             <Card>
               <Card.Body>
-                <Card.Title>Card 1</Card.Title>
-                <Card.Text>This is some text within a card body.</Card.Text>
+                <Card.Title>Urea (Granular/Prilled)</Card.Title>
+                <Card.Text></Card.Text>
               </Card.Body>
             </Card>
           </Col>
           <Col md={4}>
             <Card>
               <Card.Body>
-                <Card.Title>Card 2</Card.Title>
-                <Card.Text>This is some text within a card body.</Card.Text>
+                <Card.Title>Triple Super Phosphate (TSP)</Card.Title>
+                <Card.Text></Card.Text>
               </Card.Body>
             </Card>
           </Col>
           <Col md={4}>
             <Card>
               <Card.Body>
-                <Card.Title>Card 3</Card.Title>
-                <Card.Text>This is some text within a card body.</Card.Text>
+                <Card.Title>Muriate of Potash (MOP)</Card.Title>
+                <Card.Text></Card.Text>
               </Card.Body>
             </Card>
           </Col>
         </Row>
+      </Container>
+
+      <Container fluid>
+        <Row className="mt-5">
+          <Col md={12}>
+            <div className="articles-panel">
+              <h2>Explore the articles and get updates!</h2>
+              <Row className="mt-3">
+                {articles.map((article) => (
+                  <Col key={article._id} md={4}>
+                    <Card className="article-card mb-3">
+                      <Card.Img variant="top" src={article.image} />
+                      <Card.Body>
+                        <Card.Title>{article.title}</Card.Title>
+                        <Card.Text>{article.content}</Card.Text>
+                        <Button className="see-more-button">See More</Button>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </div>
+          </Col>
+        </Row>
+
         <Row className="mt-5">
           <Col md={12}>
             <div className="contact-us-container">
               <h2>Tell Us Your Concerns</h2>
-              <Form className="contact-us-form">
+              <Form className="contact-us-form" onSubmit={handleSubmit}>
                 <Form.Group controlId="problemType">
                   <Form.Label>Problem Type</Form.Label>
-                  <Form.Control as="select" className="problem-type-select">
+                  <Form.Control
+                    as="select"
+                    className="problem-type-select"
+                    value={problemType}
+                    onChange={(e) => setProblemType(e.target.value)}
+                  >
                     <option value="">Select</option>
-                    <option value="Fertilizer Quality">Fertilizer Quality</option>
+                    <option value="Fertilizer Quality">
+                      Fertilizer Quality
+                    </option>
                     <option value="Rice Diseases">Rice Diseases</option>
-                    <option value="Paddy Field Management">Paddy Field Management</option>
+                    <option value="Paddy Field Management">
+                      Paddy Field Management
+                    </option>
                     <option value="other">Other</option>
                   </Form.Control>
                 </Form.Group>
@@ -104,6 +176,8 @@ function FarmerHome() {
                     as="textarea"
                     rows={7}
                     className="message-textarea"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                   />
                 </Form.Group>
                 <Button
@@ -118,8 +192,7 @@ function FarmerHome() {
           </Col>
         </Row>
       </Container>
-      <br />
-      <br />
+
       <Footer />
     </>
   );

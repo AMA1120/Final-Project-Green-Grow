@@ -52,6 +52,11 @@ function Navbar() {
                   <i className="fas fa-truck"></i> Fertilizer Delivery Status
                 </Link>
               </li>
+              <li>
+                <Link to="/messages">
+                  <i className="fas fa-bell"></i> Messages
+                </Link>
+              </li>
             </>
           )}
 

@@ -60,6 +60,7 @@ router.post("/add", async (req, res) => {
     // });
 
     // Fetch Article by ID
+    
     router.get("/getArticle/:id", async (req, res) => {
         const id = req.params.id;
         try {
