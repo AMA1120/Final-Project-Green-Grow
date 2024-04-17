@@ -71,6 +71,7 @@ body {
   background-color: #5c8f32; /* Darker blue on hover */
 }
 
+/* Default styles for larger screens */
 .articles-panel {
   background-color: rgb(146, 191, 107);
   padding: 20px;
@@ -86,7 +87,8 @@ body {
 .article-card {
   margin-bottom: 20px;
   border-radius: 10px;
-  width: 400px;
+  width: 100%; /* Full width by default */
+  max-width: 400px; /* Maximum width for large screens */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -98,6 +100,8 @@ body {
 .article-card img {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  width: 100%; /* Ensure the image fills the card */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .article-card .card-body {
@@ -134,4 +138,15 @@ body {
 
 .see-more-button:hover {
   background-color: #377343; /* Darker green on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .articles-panel {
+    padding: 10px;
+  }
+  
+  .article-card {
+    max-width: 100%; /* Full width on smaller screens */
+  }
 }

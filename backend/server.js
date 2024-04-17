@@ -58,7 +58,7 @@ app.use('/farmersOrg', farmersOrgRoute);
 app.use('/farmers', farmersRoute);
 app.use('/article', ArticleRoute);
 app.use('/fertilizerdelivery', fertilizerDeliveryRoute);
-app.use('/message', messageRoute);
+app.use('/messages', messageRoute);
 
 app.listen(port, async () => {
   try {

@@ -1,0 +1,40 @@
+.container {
+    padding: 50px;
+  }
+  
+.form-group {
+    margin-bottom: 20px;
+    width: 50%;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border-radius: 10px;
+  }
+  
+  /* Custom styles for form fields */
+  .form-group input[type="text"],
+  .form-group input[type="date"] {
+    width: 100%;
+  }
+  
+  .btn-primary {
+    margin-top: 20px; /* Add space between form fields and button */
+  }
+  
+  .btn-primary {
+    background-color: #447744;
+    border-color: #113b12;
+    border-radius: 10px;
+    padding: 10px 30px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #5e6226;
+    border-color: #294913;
+  }
+  
+  

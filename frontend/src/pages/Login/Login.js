@@ -1,36 +1,48 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Login.css';
-import axios from 'axios'; 
-import { useHistory } from 'react-router-dom'; // Import useHistory for redirection
 
-function Login() {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [errors] = useState({});
+  const [error, setError] = useState('');
   const history = useHistory(); // Get history object for redirection
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!username || !password) {
+      setError('Please enter both username and password.');
+      return;
+    }
+
     try {
-      const response = await axios.post('http://localhost:3000/farmers/login', {
-        username,
-        password,
+      const response = await fetch('http://localhost:3000/farmers/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
       });
 
-      // Assuming the backend responds with a success status code (e.g., 200)
-      if (response.status === 200) {
-        // Redirect the user to the FarmerHome page
-        history.push('/farmer');
+      if (response.ok) {
+        // Assuming the backend responds with a success status code (e.g., 200)
+        const data = await response.json();
+        // Redirect the user to a common landing page
+        history.push('/FarmerHome');
         console.log('Login successful');
       } else {
         // Handle login failure (e.g., display error message)
-        alert('Invalid username or password');
+        setError('Invalid username or password');
         console.log('Login failed');
       }
     } catch (error) {
       console.error('Error during login:', error);
       // Handle error (e.g., display error message)
+      setError('Error during login. Please try again.');
     }
   };
 
@@ -47,7 +59,6 @@ function Login() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        {errors.username && <span className="error">{errors.username}</span>}
 
         <label htmlFor="password">Password</label>
         <input
@@ -57,14 +68,15 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {errors.password && <span className="error">{errors.password}</span>}
 
-        <button type="submit" className="login-btn" >
+        {error && <span className="error">{error}</span>}
+
+        <button type="submit" className="login-btn">
           Log In
         </button>
       </form>
     </div>
   );
-}
+};
 
 export default Login;
