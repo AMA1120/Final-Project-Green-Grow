@@ -3,12 +3,14 @@ import "./Farmer.css";
 import { Container, Row, Col, Button, Card, Form } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../../components/Footer";
+import { useHistory } from "react-router-dom";
 
 function FarmerHome() {
   const [farmers, setFarmers] = useState([]);
   const [articles, setArticles] = useState([]);
   const [problemType, setProblemType] = useState("");
   const [message, setMessage] = useState("");
+  const history = useHistory(); // Initialize useHistory hook
 
   useEffect(() => {
     // Fetch data from the server
@@ -34,17 +36,24 @@ function FarmerHome() {
     fetchArticles();
   }, []);
 
+  // Function to handle navigation to profile edit page
+  const handleEditProfile = () => {
+    history.push("/profile"); // Navigate to profile edit page
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/messages/submit", {
-        problemType,
-        message,
-      });
-      alert("Your message has been submitted successfully!");
-      // Reset form fields
-      setProblemType("");
-      setMessage("");
+      const response = await axios.post(
+        "http://localhost:3000/messages/submit",
+        {
+          problemType,
+          message,
+        }
+      );
+      console.log(response.data);
+
+      alert("Message submitted successfully");
     } catch (error) {
       console.error("Error submitting message:", error);
     }
@@ -89,7 +98,10 @@ function FarmerHome() {
                 ))}
               </ul>
             </div>
-            <Button variant="secondary">Edit Profile</Button>
+            <Button variant="secondary" onClick={handleEditProfile}>
+              Edit Profile
+            </Button>{" "}
+            {/* Call handleEditProfile function */}
           </Col>
         </Row>
         <br />
@@ -192,7 +204,7 @@ function FarmerHome() {
           </Col>
         </Row>
       </Container>
-
+      <br></br>
       <Footer />
     </>
   );

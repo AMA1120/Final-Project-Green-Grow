@@ -10,6 +10,7 @@ import Cinnamon from './pages/Cinnamon/cinnamon.js';
 import Tea from './pages/Tea/tea.js';
 import Serivce from './pages/Services/service.js';
 import FarmerHome from './pages/FarmerHome/Farmer.js';
+import Profile from './pages/Profile/Profile.js';
 
 
 const App = () => {
@@ -22,8 +23,9 @@ const App = () => {
         <Route path='/Farmer' component={Farmer} />
         <Route path='/Cinnamon' component={Cinnamon} />
         <Route path='/Tea' component={Tea} />
-        <Route path='/Serivce' component={Serivce} />
+        <Route path='/Service' component={Serivce} />
         <Route path='/FarmerHome' component={FarmerHome} />
+        <Route path='/Profile' component={Profile} />
 
       </Switch>
     </Router>
