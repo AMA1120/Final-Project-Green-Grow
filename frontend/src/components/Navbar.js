@@ -1,34 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "./Button";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
+const Navbar= () => {
+  const token = localStorage.getItem("token");
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
-  const [loggedIn, setLoggedIn] = useState(false); 
+  const history = useHistory(); // Get history object for redirection
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   const handleLogout = () => {
-    // Perform logout actions here
-    setLoggedIn(false);
+    localStorage.removeItem("token");
+    history.push("/Login"); // Redirect to login page after logout
   };
-
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-
-  window.addEventListener("resize", showButton);
 
   return (
     <>
@@ -43,11 +28,11 @@ function Navbar() {
           </div>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            {loggedIn ? (
+            {token ? (
               <>
                 <li className="nav-items">
                   <Link
-                    to="/myprofile"
+                    to="/Profile"
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
@@ -55,37 +40,45 @@ function Navbar() {
                   </Link>
                 </li>
                 <li className="nav-items">
-                  <button className="nav-links-mobile" onClick={handleLogout}>
+                  <button
+                    className="nav-links-mobile"
+                    onClick={handleLogout}
+                  >
                     Log Out
                   </button>
                 </li>
               </>
             ) : (
-              <li className="nav-items">
-                <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                  Home
-                </Link>
-              </li>
+              <>
+                <li className="nav-items">
+                  <Link
+                    to="/"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-items">
+                  <Link
+                    to="/Service"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li className="nav-items">
+                  <Link
+                    to="/Login"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Log In
+                  </Link>
+                </li>
+              </>
             )}
-            <li className="nav-items">
-              <Link
-                to="/Serivce"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Services
-              </Link>
-            </li>
-
-            <li className="nav-items">
-              <Link
-                to="/Login"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
-                Log In
-              </Link>
-            </li>
           </ul>
         </div>
       </nav>

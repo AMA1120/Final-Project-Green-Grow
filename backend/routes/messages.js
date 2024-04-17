@@ -1,19 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const Message = require('../models/messages');
+const mongoose = require("mongoose");
+const env = require("dotenv").config();
 
 // Route to submit a new message
 router.post('/submit', async (req, res) => {
+  const { problemType, message } = await req.body;
   try {
-    const { problemType, message } = req.body;
     const newMessage = new Message({
       problemType,
       message
     });
     await newMessage.save();
-    res.status(201).json({ message: 'Message submitted successfully' });
+    console.log(newMessage);
+    res.send(newMessage).status(201);
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error(error);
   }
 });
 
@@ -21,8 +24,9 @@ router.post('/submit', async (req, res) => {
 router.get('/get', async (req, res) => {
   try {
     const messages = await Message.find().sort({ createdAt: -1 });
-    res.status(200).json(messages);
+    res.json(messages);
   } catch (error) {
+    console.error('Error fetching messages:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

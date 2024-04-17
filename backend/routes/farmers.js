@@ -79,4 +79,42 @@ router.get("/get", async (req, res) => {
   res.status(200).send(farmers);
 });
 
+//update farmer
+router.put("/update", async (req, res) => {
+  const {
+    name,
+    NIC,
+    DOB,
+    address,
+    phone,
+    farmlandSize,
+    farmlandLocation,
+    landRegNo,
+  } = req.body;
+  const updatedFarmer = await Farmers.findOneAndUpdate(
+    { username: req.body.username },
+    {
+      name,
+      NIC,
+      DOB,
+      address,
+      phone,
+      farmlandSize,
+      farmlandLocation,
+      landRegNo,
+    },
+    { new: true }
+  );
+  if (!updatedFarmer) {
+    res.status(500).send({
+      status: "error",
+      error: "Failed to update farmer",
+    });
+  }
+  res.status(200).send({
+    status: "success",
+    message: "Farmer updated successfully",
+  });
+});
+
 module.exports = router;
