@@ -1,0 +1,135 @@
+/* Community.css */
+
+.community-container {
+    width: 80%;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    max-width: 1200px;
+  }
+  
+  .question-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+  
+  .input-field,
+  .textarea-field {
+    width: calc(100% - 20px);
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  .file-input {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  
+  .submit-btn {
+    padding: 10px 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #4cae4c;
+  }
+  
+  .questions-list {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .question-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .question-item:last-child {
+    border-bottom: none;
+  }
+  
+  .question-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+
+  .questions-list {
+    margin-top: 20px;
+  }
+  
+  .question-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .question-details {
+    margin-bottom: 20px;
+  }
+  
+  .question-details h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .question-details p {
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .question-image {
+    display: block;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .answer-box {
+    margin-top: 20px;
+  }
+  
+  .answer-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 16px;
+  }
+  
+  .submit-answer-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .submit-answer-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  

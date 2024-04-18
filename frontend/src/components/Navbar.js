@@ -68,6 +68,15 @@ const Navbar= () => {
                     Services
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/Community"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Community
+                  </Link> 
+                </li>
                 <li className="nav-items">
                   <Link
                     to="/Login"
@@ -77,6 +86,8 @@ const Navbar= () => {
                     Log In
                   </Link>
                 </li>
+
+
               </>
             )}
           </ul>

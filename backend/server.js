@@ -16,6 +16,7 @@ const Farmers = require("./models/farmers");
 const Article = require("./models/article");
 const FertilizerDeliveries = require("./models/fertilizerdelivery");
 const Message = require("./models/messages");
+const Question = require("./models/community");
 
 // Import Routes
 const ministryRoute = require("./routes/ministry");
@@ -25,6 +26,7 @@ const farmersRoute = require("./routes/farmers");
 const ArticleRoute = require("./routes/article");
 const fertilizerDeliveryRoute = require("./routes/fertilizerdelivery");
 const messageRoute = require("./routes/messages");
+const communityRoute = require("./routes/community");
 
 
 dotenv.config();
@@ -59,6 +61,7 @@ app.use('/farmers', farmersRoute);
 app.use('/article', ArticleRoute);
 app.use('/fertilizerdelivery', fertilizerDeliveryRoute);
 app.use('/messages', messageRoute);
+app.use('/community', communityRoute);
 
 app.listen(port, async () => {
   try {
