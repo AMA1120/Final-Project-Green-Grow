@@ -7,14 +7,14 @@ const Community = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState("");
+  const [answers, setAnswers] = useState({}); // Store answers as an object with question IDs as keys
+  const [answerContent, setAnswerContent] = useState({}); // Store answer content for each question
 
   const convertToBase64 = (e) => {
-    console.log(e);
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
 
     reader.onload = function () {
-      console.log(reader.result);
       setImage(reader.result);
     };
 
@@ -45,6 +45,35 @@ const Community = () => {
         image,
       });
       console.log(response.data);
+    } catch (error) {
+      console.error("Error during fetch:", error);
+    }
+  };
+
+  const fetchAnswers = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/community/getAnswers");
+      setAnswers(response.data);
+    } catch (error) {
+      console.error("Error fetching answers:", error);
+    }
+  };
+
+  const submitAnswer = async (content, questionId) => {
+    try {
+      const response = await axios.post("http://localhost:3000/community/answer", {
+        answer: content,
+        questionId,
+      });
+      
+      console.log(response.data);
+      // After successfully submitting the answer, fetch updated answers for the question
+      await fetchAnswers(questionId);
+      // Clear the answer content for the question
+      setAnswerContent((prevContent) => ({
+        ...prevContent,
+        [questionId]: "",
+      }));
     } catch (error) {
       console.error("Error during fetch:", error);
     }
@@ -102,8 +131,28 @@ const Community = () => {
                 placeholder="Write your answer here..."
                 rows="4"
                 cols="50"
+                value={answerContent[question._id] || ""}
+                onChange={(e) =>
+                  setAnswerContent((prevContent) => ({
+                    ...prevContent,
+                    [question._id]: e.target.value,
+                  }))
+                }
               ></textarea>
-              <button className="submit-answer-btn">Submit Answer</button>
+              <button
+                className="submit-answer-btn"
+                onClick={() =>
+                  submitAnswer(answerContent[question._id], question._id)
+                }
+              >
+                Submit Answer
+              </button>
+              {answers[question._id] &&
+                answers[question._id].map((answer, index) => (
+                  <div key={index} className="existing-answer">
+                    {answer.answer}
+                  </div>
+                ))}
             </div>
           </div>
         ))}
