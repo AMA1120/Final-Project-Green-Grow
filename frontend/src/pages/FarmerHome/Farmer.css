@@ -22,12 +22,68 @@ body {
 }
 
 .card-body {
-  height: 400px;
+  height: 500px;
   transition: transform 0.3s ease; /* Add transition */
 }
 
 .card:hover {
   transform: translateY(0); /* Move the card up */
+}
+
+.card-text {
+  font-size: 1rem;
+}
+.fertilizer-card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: #acc44e; /* Background color for the card */
+}
+
+.fertilizer-card:hover {
+  transform: translateY(-5px); /* Move the card up on hover */
+}
+
+.fertilizer-card .card-body {
+  padding: 20px; /* Add padding to the card body */
+  height: 200px; /* Auto height for the card body */
+}
+
+.fertilizer-card .card-title {
+  font-size: 1.5rem; /* Increase font size for the title */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.fertilizer-card .card-text {
+  font-size: 1.2rem; /* Increase font size for the text */
+}
+
+.fertilizer-card .status-button {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+/* Define colors for different statuses */
+.fertilizer-card .status-pending {
+  background-color: #f0ad4e; /* Orange for pending status */
+  color: white;
+}
+
+.fertilizer-card .status-ministry {
+  background-color: #5bc0de; /* Blue for ministry status */
+  color: white;
+}
+
+.fertilizer-card .status-asc {
+  background-color: #d9534f; /* Red for ASC status */
+  color: white;
 }
 
 .contact-us-container {

@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 function FarmerHome() {
   const [farmers, setFarmers] = useState([]);
   const [articles, setArticles] = useState([]);
+  const [deliveries, setDeliveries] = useState([]); // State to store deliveries
   const [problemType, setProblemType] = useState("");
   const [message, setMessage] = useState("");
   const history = useHistory(); // Initialize useHistory hook
@@ -32,8 +33,20 @@ function FarmerHome() {
       }
     };
 
+    const fetchDeliveries = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3000/fertilizerdelivery/get"
+        );
+        setDeliveries(response.data);
+      } catch (error) {
+        console.error("Error fetching deliveries:", error);
+      }
+    };
+
     fetchFarmers();
     fetchArticles();
+    fetchDeliveries();
   }, []);
 
   // Function to handle navigation to profile edit page
@@ -108,30 +121,28 @@ function FarmerHome() {
         <br />
         <h2>Track Your Fertilizer</h2>
         <Row className="mt-5">
-          <Col md={4}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Urea (Granular/Prilled)</Card.Title>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={4}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Triple Super Phosphate (TSP)</Card.Title>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col md={4}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Muriate of Potash (MOP)</Card.Title>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+          {deliveries.map((delivery, index) => (
+            <Col key={index} md={4}>
+              <Card className="fertilizer-card">
+                <Card.Body>
+                  <Card.Title>{delivery.fertilizerName}</Card.Title>
+                  <Card.Text>
+                    Quantity: {delivery.quantity}
+                    <br />
+                    Delivery Date:{" "}
+                    {new Date(delivery.deliveryDate).toLocaleDateString()}
+                    <br />
+                    Status:{" "}
+                    {delivery.status === 0
+                      ? "Pending"
+                      : delivery.status === 1
+                      ? "Ministry"
+                      : "ASC"}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </Container>
 
