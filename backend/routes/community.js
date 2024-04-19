@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Community = require('../models/community');
+const CommunityAnswers = require('../models/answers');
 
 // Route to fetch all community posts
 router.get('/get', async (req, res) => {
@@ -32,19 +33,34 @@ router.post('/new', async (req, res) => {
   }
 });
 
-// fetch all community posts by id
+// Route to submit an answer
+router.post('/answer', async (req, res) => {
+  try {
+    const { answer, questionId } = req.body;
 
-router.get('/getPost/:id', async (req, res) => {
-    try {
-        const community = await Community.findById(req.params.id);
-        res.json(community);
-    } catch (error) {
-        console.error('Error fetching community post:', error);
-        res.status(500).json({ message: 'Server Error' });
-    }
-    }
-);
+    const newAnswer = new CommunityAnswers({
+      answer,
+      questionId,
+    });
 
+    await newAnswer.save();
+    res.status(201).json({ message: 'Answer submitted successfully' });
+  } catch (error) {
+    console.error('Error submitting answer:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
 
+// Route to fetch all community posts
+router.get('/getAnswers', async (req, res) => {
+  try {
+    const Answer = await CommunityAnswers.find().sort({ createdAt: -1 });
+    res.json(Answer);
+  } catch (error) {
+    console.error('Error fetching community posts:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
 
 module.exports = router;
+
