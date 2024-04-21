@@ -3,9 +3,18 @@ import Navbar from "../components/NavBar/navbar";
 import { Modal, Button, Table } from "react-bootstrap";
 import axios from "axios";
 import { useEffect } from "react";
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 
 function FertilizerDelivery() {
   const [deliveries, setDeliveries] = useState([]);
+  const token = Cookies.get("token");
+  const decodedToken = jwtDecode(token);
+
+  console.log(decodedToken);
+
+  const { role } = decodedToken;
 
   useEffect(() => {
     const fetchDeliveries = async () => {
@@ -24,18 +33,24 @@ function FertilizerDelivery() {
   }, []);
 
   const [selectedDelivery, setSelectedDelivery] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleModalClose = () => setSelectedDelivery(null);
   const handleModalShow = (delivery) => setSelectedDelivery(delivery);
 
-  const updateDeliveryStatus = (id) => {
-    axios
-      .put(`http://localhost:3000/fertilizerdelivery/updateministry/${id}`)
-      .then((response) => {
-        if (response.status !== 200) {
-          console.error("Error updating status:", response.data);
-        }
+  const updateDeliveryStatus = async (id) => {
+    navigate(0);
+    try {
+      let response;
 
+      if (role === "Ministry") {
+        response = await axios.put(`http://localhost:3000/fertilizerdelivery/updateministry/${id}`);
+        
+      } else if (role === "AgrarianServCen") {
+        response = await axios.put(`http://localhost:3000/fertilizerdelivery/updateasc/${id}`);
+      }
+
+      if (response && response.status === 200) {
         const { savedDelivery } = response.data;
 
         setDeliveries(
@@ -43,14 +58,18 @@ function FertilizerDelivery() {
             delivery._id === savedDelivery._id ? savedDelivery : delivery
           )
         );
-      })
-      .catch((error) => {
-        console.error("Error updating status:", error);
-      });
+
+     
+      } else {
+        console.error("Error updating status:", response.data);
+      }
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
 
     handleModalClose();
   };
-
+  
   return (
     <>
       <div className="home-container">
@@ -90,6 +109,13 @@ function FertilizerDelivery() {
                         <Button
                           variant="primary"
                           onClick={() => handleModalShow(delivery)}
+                          disabled={
+                            (role === "Ministry" &&
+                              (delivery.status === 1 ||
+                                delivery.status === 2)) ||
+                            (role === "AgrarianServCen" &&
+                              (delivery.status === 2 || delivery.status === 0))
+                          }
                         >
                           Update Status
                         </Button>

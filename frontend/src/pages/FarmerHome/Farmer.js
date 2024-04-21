@@ -102,8 +102,8 @@ function FarmerHome() {
                   <tr key={farmer._id}>
                     <li>NIC: {farmer.NIC}</li>
                     <li>Date Of Birth: {farmer.DOB}</li>
-                    <li>Address{farmer.address}</li>
-                    <li>Mobile No.: {farmer.phone}</li>
+                    <li>Address: {farmer.address}</li>
+                    <li>Mobile No: {farmer.phone}</li>
                     <li>Size of the land: {farmer.farmlandSize}</li>
                     <li>Farmland Location: {farmer.farmlandLocation}</li>
                     <li>Reg No. of the land: {farmer.landRegNo}</li>
