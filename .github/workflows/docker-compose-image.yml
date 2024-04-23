@@ -50,10 +50,6 @@ jobs:
         run: |
             docker-compose build
 
-            docker tag admin:local ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow:admin
-            docker tag frontend:local ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow:frontend
-            docker tag backend:local ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow:backend
-          
-            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow:admin
-            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow:frontend
-            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow:backend
+            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow-admin:1.0.0
+            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow-frontend:1.0.0
+            docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/green-grow-backend:1.0.0
