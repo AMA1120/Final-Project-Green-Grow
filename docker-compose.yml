@@ -1,0 +1,38 @@
+version: "3"
+services:
+  client:
+    image: ama1120/green-grow-frontend:1.0.0
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    container_name: frontend-container
+    networks:
+      - my_network
+
+  admin:
+    image: ama1120/green-grow-admin:1.0.0
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    container_name: admin-container
+    networks:
+      - my_network
+
+  backend:
+    image: ama1120/green-grow-backend:1.0.0
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: backend-container
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
