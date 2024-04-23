@@ -179,7 +179,7 @@ body {
 /* Login form container */
 .login-container {
   overflow-x: hidden; /* Hide horizontal scrollbar */
-  background-image: url('C:/Users/User/Documents/GitHub/Green-Grow/admin/src/assets/login.jpg');
+  background-image: url('/src/assets/login.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
