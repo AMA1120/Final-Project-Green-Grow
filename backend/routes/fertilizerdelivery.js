@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const FertilizerDeliveries = require("../models/fertilizerdelivery");
 const env = require("dotenv").config();
+const twilio = require("twilio");
+const sendSMS = require("../Messages/sms");
+
 
 // Route to add a new fertilizer delivery
 router.post("/add", async (req, res) => {
@@ -36,7 +39,8 @@ router.put("/updateministry/:id", async (req, res) => {
     const updatedDelivery = await FertilizerDeliveries.findById(id);
 
     res.status(200).json({
-      message: "Delivery status updated successfully to Ministry by Ministry admin.",
+      message:
+        "Delivery status updated successfully to Ministry by Ministry admin.",
       updatedDelivery,
     });
   } catch (error) {
@@ -52,11 +56,11 @@ router.put("/updateasc/:id", async (req, res) => {
     // Update status to ASC (2) and increment ascUpdateCount
     await FertilizerDeliveries.findByIdAndUpdate(id, { status: 2 });
 
-    // Fetch the updated delivery
-    const updatedDelivery = await FertilizerDeliveries.findById(id);
+    await sendSMS(
+      "Hi, All fertilizer deliveries are complete. Now you can collect your fertilizer from the nearest center. Thank you!",
+      "+94769413257"
+    );
 
-
-    
     res.status(200).json({
       message: "Delivery status updated successfully to ASC by ASC admin.",
       updatedDelivery,
@@ -65,8 +69,6 @@ router.put("/updateasc/:id", async (req, res) => {
     res.status(500).json({ message: "Error updating status", error });
   }
 });
-
-
 
 // Route to get all fertilizer deliveries
 router.get("/get", async (req, res) => {
