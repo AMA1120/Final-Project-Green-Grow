@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Login.css';
+import Cookies from 'js-cookie';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -31,6 +32,8 @@ const Login = () => {
       if (response.ok) {
         // Assuming the backend responds with a success status code (e.g., 200)
         const data = await response.json();
+        Cookies.set('token', data.token, {expires: 1});
+
         // Redirect the user to a common landing page
         history.push('/FarmerHome');
         console.log('Login successful');
