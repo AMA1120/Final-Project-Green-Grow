@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/NavBar/navbar";
 import { Table, Button } from "react-bootstrap";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom"; 
 
 function Messages() {
   const [messages, setMessages] = useState([]);
@@ -20,24 +20,25 @@ function Messages() {
     fetchMessages();
   }, []);
 
-  const handleOkClick = async (id) => {
+  const navigate = useNavigate();
+  const handleOkClick = async (messageId, index) => {
+    navigate(0)
     try {
-      // Make a POST request to Twilio's SMS API endpoint
-      const response = await axios.post("YOUR_TWILIO_SMS_API_URL", {
-        to: "RECIPIENT_PHONE_NUMBER",
-        body: "Your message content here",
-        // Add other necessary parameters (e.g., Twilio authentication credentials)
+      await axios.post("http://localhost:3000/messages/send-sms", {
+        message: "Your message has been received and will be addressed shortly. Thank you!",
+        number: "+94769413257" // Replace this with the desired recipient number
       });
-  
-      // Log the response from the SMS service
-      console.log("SMS sent successfully:", response.data);
-  
-      // Implement any additional logic here (e.g., display a success message to the user)
+      console.log("SMS sent successfully");
+      // Update the state to mark the message as sent
+      const updatedMessages = [...messages];
+      updatedMessages[index].sent = true;
+      setMessages(updatedMessages);
+      // Optionally, you can update the UI or perform any other actions after sending the SMS
     } catch (error) {
       console.error("Error sending SMS:", error);
-      // Implement error handling (e.g., display an error message to the user)
+      // Optionally, handle errors or display a message to the user
     }
-  };  
+  };
 
   // Function to format date to yyyy-mm-dd
   const formatDate = (dateString) => {
@@ -61,15 +62,17 @@ function Messages() {
               </tr>
             </thead>
             <tbody>
-              {messages.map((message) => (
+              {messages.map((message, index) => (
                 <tr key={message._id}>
                   <td>{message.problemType}</td>
                   <td>{message.message}</td>
                   <td>{formatDate(message.createdAt)}</td> {/* Format date */}
                   <td>
-                    <Button onClick={() => handleOkClick(message._id)}>
-                      OK
-                    </Button>
+                    {message.sent ? (
+                      <Button disabled>Done</Button>
+                    ) : (
+                      <Button onClick={() => handleOkClick(message._id, index)}>OK</Button>
+                    )}
                   </td>
                 </tr>
               ))}
