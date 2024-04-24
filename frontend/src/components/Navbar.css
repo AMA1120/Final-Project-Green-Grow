@@ -85,28 +85,31 @@
   .nav-menu {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     height: 90vh;
     position: absolute;
-    top: 80px;
-    left: -100%;
+    top: 90px;
+    right: 100%;
     opacity: 1;
     transition: all 0.5s ease;
   }
 
   .nav-menu.active {
-    background: #2c2323;
+    background: #967b2b;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
+    
   }
 
   .nav-links {
-    text-align: center;
+    text-align: left;
     padding: 2rem;
     width: 100%;
     display: table;
+    font-size: 1.7rem;
+    align-items: top;
   }
 
   .nav-links:hover {
@@ -128,7 +131,7 @@
     top: 0;
     right: 0;
     transform: translate(-100%, 60%);
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
   }
 
