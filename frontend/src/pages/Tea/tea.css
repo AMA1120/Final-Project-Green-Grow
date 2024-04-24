@@ -79,7 +79,7 @@ body {
 }
 
 .right-tea-image {
-    background: url("C:\Users\User\Documents\GitHub\Green-Grow\frontend\src\assets\tea.jpg")
+    background: url("https://cdn-images-1.medium.com/max/1024/0*yLOJX-6FefjoxN5b")
       no-repeat center center;
     background-size: cover;
 }
@@ -149,7 +149,7 @@ body {
 
 .right-tea-section {
     flex: 1;
-    background: url("C:\\Users\\User\\Documents\\GitHub\\Green-Grow\\frontend\\src\\assets\\tea plants.jpg")
+    background: url("https://image.arrivalguides.com/1230x800/19/cd9907516320fb7ba612c768102c4caf.jpg")
       no-repeat center center;
     background-size: cover;
     transition: opacity 0.3s ease-in-out; /* Smooth transition for image opacity */
