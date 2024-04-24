@@ -81,7 +81,7 @@ body {
 }
 
 .right-image {
-  background: url("C:\\Users\\User\\Documents\\GitHub\\Green-Grow\\frontend\\src\\assets\\cinnamon.jpg")
+  background: url("https://cdn.pixabay.com/photo/2013/03/11/16/08/cinnamon-92595_1280.jpg")
     no-repeat center center;
   background-size: cover;
 }
@@ -151,7 +151,7 @@ body {
 
 .right-section {
   flex: 1;
-  background: url("C:\\Users\\User\\Documents\\GitHub\\Green-Grow\\frontend\\src\\assets\\cin.jpg")
+  background: url("https://woocommerce.element.how/wp-content/uploads/2023/03/productimg0104.jpg")
     no-repeat center center;
   background-size: cover;
   transition: opacity 0.3s ease-in-out;
