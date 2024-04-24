@@ -22,7 +22,7 @@ body {
 .service-image {
   width: 50%;
   height: 700px; /* Adjust the height as needed */
-  background-image: url("C:\\Users\\User\\Documents\\GitHub\\Green-Grow\\frontend\\src\\assets\\far1.jpg"); /* Corrected path to your image */
+  background-image: url("https://vkcyprus.com/wp-content/uploads/2023/11/people-planting-tree-countryside.jpg"); /* Corrected path to your image */
   background-size: cover;
   background-position: center;
   /* Add more styles as needed */
