@@ -30,7 +30,7 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
 
 ```
 .
-└── Full-Stack-Project-main
+└── Final-Project-Green-Grow-main
     |
     ├──.github\work
     |     ├──docker-compose-image.yml   // Docker Compose file for building Docker images
