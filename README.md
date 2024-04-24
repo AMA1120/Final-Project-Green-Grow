@@ -13,10 +13,15 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
 
 
 # Technologies Used:
+
 **Frontend**: React.js
+
 **Backend**: Node.js, Express.js
+
 **Database**: MongoDB
+
 **Testing**: Jest, Cypress
+
 **Containerization**: Docker
 
 
