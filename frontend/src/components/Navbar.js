@@ -44,7 +44,7 @@ const Navbar = () => {
               <>
                 <li className="nav-items">
                   <Link to="/FarmerHome" className="nav-links">
-                    Home
+                    Farmer Home
                   </Link>
                 </li>
                 <li className="nav-items">

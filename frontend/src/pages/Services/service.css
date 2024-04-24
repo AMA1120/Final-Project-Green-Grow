@@ -164,3 +164,30 @@ body {
   line-height: 1.6;
   color: black;
 }
+/* Add media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .card-serve {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .card-serve img {
+    height: auto;
+  }
+}
+
+/* Add media query for screens smaller than 576px */
+@media (max-width: 576px) {
+  .card-serve-container {
+    flex-direction: column;
+  }
+
+  .card-serve {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .service-description {
+    padding: 20px;
+  }
+}

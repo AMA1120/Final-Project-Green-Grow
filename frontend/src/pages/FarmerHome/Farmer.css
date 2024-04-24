@@ -33,6 +33,7 @@ body {
 .card-text {
   font-size: 1rem;
 }
+
 .fertilizer-card {
   margin-bottom: 20px;
   border-radius: 10px;
@@ -203,6 +204,6 @@ body {
   }
   
   .article-card {
-    max-width: 100%; /* Full width on smaller screens */
+    max-width: 90%; /* Full width on smaller screens */
   }
 }
