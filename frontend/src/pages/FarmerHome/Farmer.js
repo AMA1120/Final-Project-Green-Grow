@@ -3,7 +3,8 @@ import "./Farmer.css";
 import { Container, Row, Col, Button, Card, Form } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../../components/Footer";
-import { useHistory } from "react-router-dom";
+import { useHistory} from "react-router-dom";
+
 
 function FarmerHome() {
   const [farmers, setFarmers] = useState([]);
@@ -54,7 +55,7 @@ function FarmerHome() {
     history.push("/profile"); // Navigate to profile edit page
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { 
     e.preventDefault();
     try {
       const response = await axios.post(
@@ -65,12 +66,14 @@ function FarmerHome() {
         }
       );
       console.log(response.data);
-
+  
       alert("Message submitted successfully");
+      window.location.reload(); // Reload the page
     } catch (error) {
       console.error("Error submitting message:", error);
     }
   };
+  
 
   return (
     <>
