@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const FertilizerDeliveries = require("../models/fertilizerdelivery");
 const env = require("dotenv").config();
-const twilio = require("twilio");
 const sendSMS = require("../Messages/sms");
+
 
 
 // Route to add a new fertilizer delivery
