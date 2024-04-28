@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config();
 
+
 router.post("/add", async (req, res) => {
   const { fullName, email, position, username, password } = req.body;
   const encryptedPassword = await bcrypt.hash(password, 10);
