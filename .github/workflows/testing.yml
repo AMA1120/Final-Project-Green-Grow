@@ -1,0 +1,24 @@
+name: Run Tests - CI
+
+on:
+  push:
+    branches: ["prod"]
+
+jobs:
+  Run-Tests-CI:
+    defaults:
+      run:
+        working-directory: ./backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Dependecies
+        run: |
+          npm install --force
+          npm ci
+      - name: Run Tests - CI
+        run: npm run test
