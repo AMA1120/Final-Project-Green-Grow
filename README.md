@@ -36,7 +36,7 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
     |     ├──docker-compose-image.yml   // Docker Compose file for building Docker images
     |     └──testing.yml                // Testing workflow configuration file
     |
-    ├── client                          // Frontend directory for the client-side application
+    ├── frontend                       // Frontend directory for the client-side application
     |   ├── cypress                    // Directory for end-to-end testing using Cypress
     |   ├── public                     // Public assets and static files
     |   |  
@@ -52,7 +52,7 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
     |   ├── package.json
     |   └──.gitignore                  // Gitignore file to specify files and directories to be ignored by Git
     |
-    ├── dashboard                       // Admin dashboard directory
+    ├── admin                          // Admin dashboard directory
     |   ├── public
     |   ├── src
     |   |    ├──components             // Components for the admin dashboard
@@ -64,7 +64,7 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
     |   └── package.json
     |    
     |   
-    ├── server                          // Backend server directory
+    ├── backend                        // Backend server directory
     |   ├── models                     // Database models
     |   ├── routes                     // API routes
     |   ├── test                       // Test files for server testing
