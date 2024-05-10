@@ -5,7 +5,6 @@ import axios from "axios";
 import Footer from "../../components/Footer";
 import { useHistory} from "react-router-dom";
 
-
 function FarmerHome() {
   const [farmers, setFarmers] = useState([]);
   const [articles, setArticles] = useState([]);
@@ -19,7 +18,7 @@ function FarmerHome() {
     const fetchFarmers = async () => {
       try {
         const response = await axios.get("http://localhost:3000/farmers/get");
-        setFarmers(response.data);
+        setFarmers([response.data[0]]);
       } catch (error) {
         console.error("Error fetching farmer data:", error);
       }
