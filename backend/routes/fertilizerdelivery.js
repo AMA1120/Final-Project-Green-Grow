@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const FertilizerDeliveries = require("../models/fertilizerdelivery");
+const sendSMS = require("../Messages/vonage");
 const env = require("dotenv").config();
-const sendSMS = require("../Messages/sms");
-
 
 
 // Route to add a new fertilizer delivery
@@ -48,17 +47,17 @@ router.put("/updateministry/:id", async (req, res) => {
   }
 });
 
-// Route to update ministry to asc by ASC admin
 router.put("/updateasc/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
     // Update status to ASC (2) and increment ascUpdateCount
-    await FertilizerDeliveries.findByIdAndUpdate(id, { status: 2 });
+    const updatedDelivery = await FertilizerDeliveries.findByIdAndUpdate(id, { status: 2 });
 
+    // Send SMS using Vonage
     await sendSMS(
       "Hi, All fertilizer deliveries are complete. Now you can collect your fertilizer from the nearest center. Thank you!",
-      "+94772057454"
+      "+94769413257" // Replace with the recipient number
     );
 
     res.status(200).json({
@@ -66,6 +65,7 @@ router.put("/updateasc/:id", async (req, res) => {
       updatedDelivery,
     });
   } catch (error) {
+    console.error("Error updating status:", error);
     res.status(500).json({ message: "Error updating status", error });
   }
 });
