@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/NavBar/navbar";
 import { Table, Button } from "react-bootstrap";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function Messages() {
   const [messages, setMessages] = useState([]);
@@ -21,25 +21,30 @@ function Messages() {
   }, []);
 
   const navigate = useNavigate();
-  const handleOkClick = async (messageId, index) => {
-    navigate(0)
+  const handleOkClick = async (id, index, messageId) => {
     try {
-      await axios.post("http://localhost:3000/messages/send-sms", {
-        message: "Your message has been received and will be addressed shortly. Thank you!",
-        number: "+94769413257" // Replace this with the desired recipient number
-      });
-      console.log("SMS sent successfully");
-      // Update the state to mark the message as sent
-      const updatedMessages = [...messages];
-      updatedMessages[index].sent = true;
-      setMessages(updatedMessages);
-      // Optionally, you can update the UI or perform any other actions after sending the SMS
+      const response = await axios.put(
+        `http://localhost:3000/messages/update-status/${id}`
+      );
+
+      if (response.status === 200) {
+        // If message status is updated successfully, send SMS
+        await axios.post("http://localhost:3000/messages/send-sms", {
+          message: "Your problem is resolved. Thank You!",
+          number: "+94772057454", // Replace with recipient's number
+        });
+
+        console.log("SMS sent successfully");
+
+        // Navigate after sending SMS
+        navigate(0);
+      }
     } catch (error) {
-      console.error("Error sending SMS:", error);
-      // Optionally, handle errors or display a message to the user
+      console.error("Error updating message status:", error);
     }
   };
 
+    
   // Function to format date to yyyy-mm-dd
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -68,11 +73,21 @@ function Messages() {
                   <td>{message.message}</td>
                   <td>{formatDate(message.createdAt)}</td> {/* Format date */}
                   <td>
-                    {message.sent ? (
-                      <Button disabled>Done</Button>
-                    ) : (
-                      <Button onClick={() => handleOkClick(message._id, index)}>OK</Button>
-                    )}
+                    <Button
+                      className={
+                        message.check === "0"
+                          ? "bg-primary"
+                          : message.check === "1"
+                          ? "bg-danger"
+                          : ""
+                      }
+                      onClick={() => handleOkClick(message._id)}
+                      disabled={message.check === "1"}
+                    >
+                      {message.check === "0" 
+                         ? "Ok" 
+                         : "Sent Message"}
+                    </Button>
                   </td>
                 </tr>
               ))}

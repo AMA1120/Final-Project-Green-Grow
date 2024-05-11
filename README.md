@@ -20,9 +20,11 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
 
 **Database**: MongoDB
 
-**Testing**: Jest, Cypress
+**Testing**: Jest
 
 **Containerization**: Docker
+
+**Message Sending**: Twilio
 
 
 # File structure:
@@ -37,7 +39,6 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
     |     └──testing.yml                // Testing workflow configuration file
     |
     ├── frontend                       // Frontend directory for the client-side application
-    |   ├── cypress                    // Directory for end-to-end testing using Cypress
     |   ├── public                     // Public assets and static files
     |   |  
     |   ├── src 
@@ -45,7 +46,6 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
     |   |    ├──Images                 // Images used in the frontend
     |   |    └──pages                  // Frontend pages
     |   |
-    |   ├── cypress.congig             // Cypress configuration file
     |   ├── Dockerfile                 // Docker configuration file for building the client image
     |   ├── jest.config.js             // Jest configuration file for frontend testing
     |   ├── package-lock.json

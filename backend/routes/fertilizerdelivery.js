@@ -58,7 +58,7 @@ router.put("/updateasc/:id", async (req, res) => {
 
     await sendSMS(
       "Hi, All fertilizer deliveries are complete. Now you can collect your fertilizer from the nearest center. Thank you!",
-      "+94769413257"
+      "+94772057454"
     );
 
     res.status(200).json({
