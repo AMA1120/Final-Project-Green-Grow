@@ -24,19 +24,19 @@ https://github.com/AMA1120/Final-Project-Green-Grow.git
 <p>2. Navigate to the backend directory</p>
 
 ```
-`cd Final-Project-Green-Grow/backend`
+cd Final-Project-Green-Grow/backend
 ```
 
 <p>3. Install the Dependencies</p>
 
 ```
-`npm install`
+npm install
 ```
 
 <p>4. Start the backend</p>
 
 ```
-`npm run dev`
+npm run dev
 ```
 
 <hr>
@@ -52,19 +52,19 @@ https://github.com/AMA1120/Final-Project-Green-Grow.git
 <p>2. Navigate to the frontend directory</p>
 
 ```
-`cd Final-Project-Green-Grow/frontend`
+cd Final-Project-Green-Grow/frontend
 ```
 
 <p>3. Install the dependencies</p>
 
 ```
-`npm install`
+npm install
 ```
 
 <p>4. Start the frontend</p>
 
 ```
-`npm run dev`
+npm run dev
 ```
 
 <hr>
@@ -80,19 +80,19 @@ https://github.com/AMA1120/Final-Project-Green-Grow.git
 <p>2. Navigate to the admin directory</p>
 
 ```
-`cd Final-Project-Green-Grow/admin`
+cd Final-Project-Green-Grow/admin
 ```
 
 <p>3. Install the dependencies</p>
 
 ```
-`npm install`
+npm install
 ```
 
 <p>4. Start the admin</p>
 
 ```
-`npm run dev`
+npm run dev
 ```
 ## When Your PC has Docker Installed
 
