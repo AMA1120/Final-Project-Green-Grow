@@ -3,7 +3,7 @@ const router = express.Router();
 const Message = require("../models/messages");
 const mongoose = require("mongoose");
 const env = require("dotenv").config();
-const twilio = require("twilio");
+const vonage = require("@vonage/server-sdk");
 
 // Route to submit a new message
 router.post("/submit", async (req, res) => {
@@ -32,25 +32,25 @@ router.get("/get", async (req, res) => {
   }
 });
 
-// Route to send SMS
+// Route to send SMS by vonage
 
 router.post("/send-sms", async (req, res) => {
   const { message, number } = req.body;
-  const accountSid = process.env.TWILIO_ACCOUNT_SID;
-  const authToken = process.env.TWILIO_AUTH_TOKEN;
-  const client = new twilio(accountSid, authToken);
   try {
-    await client.messages.create({
-      body: message,
-      from: "+15089067284",
-      to: number,
+    const vonage = new vonage({
+      apiKey: process.env.VONAGE_API_KEY,
+      apiSecret: process.env.VONAGE_API_SECRET,
     });
-    res.send("SMS sent successfully").status(200);
+
+    await vonage.message.sendSMS("Vonage", number, message);
+
+    res.status(200).json({ message: "Message sent successfully" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Error sending message:", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
 
 // Route to update message status
 
