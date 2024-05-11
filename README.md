@@ -4,11 +4,15 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a 
 # Install Dependencies and run the project
 
 
-**For Frontend** - `cd frontend` `npm i` `npm run start`
+**Frontend** - 
+cd admin
+npm install
+npm start
 
-**For admin Dashboard** - `cd admin` `npm i` `npm run start`
 
-**For Backend** - `cd backend` `npm i` `npm run dev`
+**Admin Dashboard** - `cd admin` `npm i` `npm run start`
+
+**Backend** - `cd backend` `npm i` `npm run dev`
 
 
 
