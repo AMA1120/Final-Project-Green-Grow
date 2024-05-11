@@ -1,6 +1,12 @@
 # Green-Grow
 This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform.  Green-Grow is a comprehensive web application tailored for the agricultural community. It serves as a pivotal platform for farmers to monitor and manage the distribution of fertilizers, ensuring that the backbone of our food supply is supported by the latest in tech-driven efficiency.
 
+# Functionalities:
+
+**Fertilizer Tracking**:   Monitor the distribution of fertilizers to ensure timely delivery and efficient usage.
+**User-Friendly Interface**: Intuitive design for easy navigation and interaction.
+**Admin Dashboard**: Admins can manage users, track distribution, and analyze data.
+**Real-time Alerts**: Stay informed about fertilizer availability and delivery status.
 
 <h2>🛠️ Installation Steps:</h2>
 
