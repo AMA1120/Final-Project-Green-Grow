@@ -48,7 +48,7 @@ function Farmers() {
         // If collection status is updated successfully, send SMS
         await axios.post("http://localhost:3000/messages/send-sms", {
           message: "You have collected all fertilizers. Thank You!",
-          number: "+94772057454", // Replace with recipient's number
+          number: "+94769413257", // Replace with recipient's number
         });
 
         console.log("SMS sent successfully");
