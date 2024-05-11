@@ -13,10 +13,10 @@ const messageSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  // Image: {
-  //   type: String,
-  //   required: [true, 'Please provide an image'],
-  // }
+  check: {
+    type: String,
+    default: 0, // 0: check, 1: message sent
+  },
 });
 
 const Message = mongoose.model('Message', messageSchema);
