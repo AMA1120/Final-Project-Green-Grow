@@ -3,13 +3,13 @@ This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform.  Green-
 
 # Functionalities:
 
-**Fertilizer Tracking**:   Monitor the distribution of fertilizers to ensure timely delivery and efficient usage.
+. **Fertilizer Tracking**:   Monitor the distribution of fertilizers to ensure timely delivery and efficient usage.
 
-**User-Friendly Interface**: Intuitive design for easy navigation and interaction.
+. **User-Friendly Interface**: Intuitive design for easy navigation and interaction.
 
-**Admin Dashboard**: Admins can manage users, track distribution, and analyze data.
+. **Admin Dashboard**: Admins can manage users, track distribution, and analyze data.
 
-**Real-time Alerts**: Stay informed about fertilizer availability and delivery status.
+. **Real-time Alerts**: Stay informed about fertilizer availability and delivery status.
 
 <h2>🛠️ Installation Steps:</h2>
 
