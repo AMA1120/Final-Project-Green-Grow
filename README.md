@@ -1,6 +1,15 @@
 # Green-Grow
-This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform.  Green-Grow is a comprehensive web application tailored for the agricultural community. It serves as a pivotal platform for farmers to monitor and manage the distribution of fertilizers, ensuring that the backbone of our food supply is supported by the latest in tech-driven efficiency.
+This is  an Agri Connect &amp; Fertilizer Distribution Tracking Platform.  Green-Grow is a comprehensive web application tailored for the agricultural community. It serves as a pivotal platform for farmers to monitor and manage the distribution of fertilizers, ensuring that the backbone of our food supply is supported by the latest in tech-driven efficiency.
 
+<h2>⚙️ Functionalities:</h2> 
+
+- **Fertilizer Tracking**:   Monitor the distribution of fertilizers to ensure timely delivery and efficient usage.
+
+- **User-Friendly Interface**: Intuitive design for easy navigation and interaction.
+
+- **Admin Dashboard**: Admins can manage users, track distribution, and analyze data.
+
+- **Real-time Alerts**: Stay informed about fertilizer availability and delivery status.
 
 <h2>🛠️ Installation Steps:</h2>
 
@@ -15,19 +24,19 @@ https://github.com/AMA1120/Final-Project-Green-Grow.git
 <p>2. Navigate to the backend directory</p>
 
 ```
-`cd Final-Project-Green-Grow/backend`
+cd Final-Project-Green-Grow/backend
 ```
 
 <p>3. Install the Dependencies</p>
 
 ```
-`npm install`
+npm install
 ```
 
 <p>4. Start the backend</p>
 
 ```
-`npm run dev`
+npm run dev
 ```
 
 <hr>
@@ -43,19 +52,19 @@ https://github.com/AMA1120/Final-Project-Green-Grow.git
 <p>2. Navigate to the frontend directory</p>
 
 ```
-`cd Final-Project-Green-Grow/frontend`
+cd Final-Project-Green-Grow/frontend
 ```
 
 <p>3. Install the dependencies</p>
 
 ```
-`npm install`
+npm install
 ```
 
 <p>4. Start the frontend</p>
 
 ```
-`npm run dev`
+npm run dev
 ```
 
 <hr>
@@ -71,35 +80,54 @@ https://github.com/AMA1120/Final-Project-Green-Grow.git
 <p>2. Navigate to the admin directory</p>
 
 ```
-`cd Final-Project-Green-Grow/admin`
+cd Final-Project-Green-Grow/admin
 ```
 
 <p>3. Install the dependencies</p>
 
 ```
-`npm install`
+npm install
 ```
 
 <p>4. Start the admin</p>
 
 ```
-`npm run dev`
+npm run dev
+```
+## When Your PC has Docker Installed
+
+<p>1. Clone the Repository</p>
+
+```
+https://github.com/AMA1120/Final-Project-Green-Grow.git
+```
+<p>2. Get inside the Project</p>
+
+
+```
+cd Final-Project-Green-Grow/
 ```
 
 
-# Technologies Used:
+<p>3. Start the Docker Containers</p>
 
-**Frontend**: React.js
+```
+docker compose up -d
+``` 
 
-**Backend**: Node.js, Express.js
+<h2>🔧 Technologies Used:</h2>
 
-**Database**: MongoDB
+- **Frontend**: React.js
 
-**Testing**: Jest
+- **Backend**: Node.js, Express.js
 
-**Containerization**: Docker
+- **Database**: MongoDB
 
-**Message Sending**: Twilio
+- **Testing**: Jest
+
+- **Containerization**: Docker
+
+- **Message Sending**: Twilio
 
 
 # File structure:
