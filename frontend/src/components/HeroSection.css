@@ -35,4 +35,39 @@ h4 {
   }
 }
 
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.arrow {
+  display: block;
+  font-size: 52px; /* Adjust size as needed */
+  color: #fff; /* Adjust color as needed */
+  animation: bounce 2s infinite;
+  margin-top: 16px; /* Adjust spacing as needed */
+}
+
+.hero-container > p {
+  margin-top: 8px;
+  color: #fff;
+  font-size: 32px;
+  animation: bounce 12s infinite;
+}
+
+@media (max-width: 768px) {
+  .hero-container > p {
+    font-size: 24px;
+    animation: bounce 1.5s infinite;
+  }
+}
+
+
   
