@@ -1,7 +1,7 @@
 # Green-Grow
-This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform.  Green-Grow is a comprehensive web application tailored for the agricultural community. It serves as a pivotal platform for farmers to monitor and manage the distribution of fertilizers, ensuring that the backbone of our food supply is supported by the latest in tech-driven efficiency.
+This is  an Agri Connect &amp; Fertilizer Distribution Tracking Platform.  Green-Grow is a comprehensive web application tailored for the agricultural community. It serves as a pivotal platform for farmers to monitor and manage the distribution of fertilizers, ensuring that the backbone of our food supply is supported by the latest in tech-driven efficiency.
 
-# Functionalities:
+<h2>⚙️ Functionalities:</h2> 
 
 - **Fertilizer Tracking**:   Monitor the distribution of fertilizers to ensure timely delivery and efficient usage.
 
@@ -115,7 +115,7 @@ cd Final-Project-Green-Grow/
 docker compose up -d
 ``` 
 
-# Technologies Used:
+<h2>🔧 Technologies Used:</h2>
 
 - **Frontend**: React.js
 
