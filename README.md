@@ -98,17 +98,17 @@ https://github.com/AMA1120/Final-Project-Green-Grow.git
 
 # Technologies Used:
 
-**Frontend**: React.js
+- **Frontend**: React.js
 
-**Backend**: Node.js, Express.js
+- **Backend**: Node.js, Express.js
 
-**Database**: MongoDB
+- **Database**: MongoDB
 
-**Testing**: Jest
+- **Testing**: Jest
 
-**Containerization**: Docker
+- **Containerization**: Docker
 
-**Message Sending**: Twilio
+- **Message Sending**: Twilio
 
 
 # File structure:
