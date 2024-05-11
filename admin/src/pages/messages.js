@@ -30,8 +30,8 @@ function Messages() {
       if (response.status === 200) {
         // If message status is updated successfully, send SMS
         await axios.post("http://localhost:3000/messages/send-sms", {
-          message: "Your problem is resolved. Thank You!",
-          number: "+94772057454", // Replace with recipient's number
+          message: "I will contact you as soon as possible. Thank You!",
+          number: "+94769413257", // Replace with recipient's number
         });
 
         console.log("SMS sent successfully");
