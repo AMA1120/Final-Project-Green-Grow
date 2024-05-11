@@ -1,15 +1,90 @@
 # Green-Grow
-This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a web application for farmers to track the fertilizer distribution system and any user who loves farming or cultivation. 
-
-# Install Dependencies and run the project
+This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform.  Green-Grow is a comprehensive web application tailored for the agricultural community. It serves as a pivotal platform for farmers to monitor and manage the distribution of fertilizers, ensuring that the backbone of our food supply is supported by the latest in tech-driven efficiency.
 
 
-**Client Frontend** - `cd admin` `npm i` `npm run start`
+<h2>🛠️ Installation Steps:</h2>
 
-**Admin Dashboard** - `cd admin` `npm i` `npm run start`
+<h3>Green-Grow Web Application Backend</h3>
 
-**Backend** - `cd backend` `npm i` `npm run dev`
+<p>1. Clone the Repository</p>
 
+```
+https://github.com/AMA1120/Final-Project-Green-Grow.git
+```
+
+<p>2. Navigate to the backend directory</p>
+
+```
+`cd Final-Project-Green-Grow/backend`
+```
+
+<p>3. Install the Dependencies</p>
+
+```
+`npm install`
+```
+
+<p>4. Start the backend</p>
+
+```
+`npm run dev`
+```
+
+<hr>
+
+<h3>Green-Grow Web Application User Frontend</h3>
+
+<p>1. Clone the Repository</p>
+
+```
+https://github.com/AMA1120/Final-Project-Green-Grow.git
+```
+
+<p>2. Navigate to the frontend directory</p>
+
+```
+`cd Final-Project-Green-Grow/frontend`
+```
+
+<p>3. Install the dependencies</p>
+
+```
+`npm install`
+```
+
+<p>4. Start the frontend</p>
+
+```
+`npm run dev`
+```
+
+<hr>
+
+<h3>Green-Grow Web Application Admin Frontend</h3>
+
+<p>1. Clone the Repository</p>
+
+```
+https://github.com/AMA1120/Final-Project-Green-Grow.git
+```
+
+<p>2. Navigate to the admin directory</p>
+
+```
+`cd Final-Project-Green-Grow/admin`
+```
+
+<p>3. Install the dependencies</p>
+
+```
+`npm install`
+```
+
+<p>4. Start the admin</p>
+
+```
+`npm run dev`
+```
 
 
 # Technologies Used:
