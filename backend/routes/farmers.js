@@ -54,7 +54,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
-//login route
+// Login route
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
@@ -76,13 +76,13 @@ router.post("/login", async (req, res) => {
   }
 });
 
-//get all farmers
+// Get all farmers
 router.get("/get", async (req, res) => {
   const farmers = await Farmers.find({});
   res.status(200).send(farmers);
 });
 
-//update farmer
+// Update farmer
 router.put("/update", async (req, res) => {
   const {
     name,
@@ -119,5 +119,27 @@ router.put("/update", async (req, res) => {
     message: "Farmer updated successfully",
   });
 });
+
+// Update collection status
+router.put("/updateCollectionStatus/:id", async (req, res) => {
+  try {
+   const { id } = req.params;
+
+    // Update status to Collected (1)
+    await Farmers.findByIdAndUpdate(id, { collectionStatus: 1 });
+
+    // Fetch the updated farmer
+    const updatedFarmer = await Farmers.findById(id);
+
+    res.status(200).json({
+      message:
+        "Collection status updated successfully.",
+      updatedFarmer,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating status", error });
+  }
+});
+
 
 module.exports = router;

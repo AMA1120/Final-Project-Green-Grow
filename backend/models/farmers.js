@@ -42,6 +42,10 @@ const Farmer = new Schema({
     type: String,
     required: [true, "Please provide a password"],
   },
+  collectionStatus: {
+    type: String,
+    default: 0, // 0: Not collected, 1: Collected
+  },
 });
 
 const Farmers = models.Farmers || model("Farmers", Farmer);

@@ -68,7 +68,7 @@ function Home() {
     </RoleProvider>
       <div className="home-content">
         <div className="tbl-container">
-          <h1>Agrarian Service Centers</h1>
+          <h1>Welcome to Ministry Admin Dashboard</h1>
           <Link to="/addASC" className="add-button">
             + Add new Agrarian Service Center
           </Link>
