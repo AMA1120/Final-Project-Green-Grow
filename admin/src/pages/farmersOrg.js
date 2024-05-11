@@ -32,7 +32,7 @@ function FarmersOrg() {
       <Navbar />
       <div className="home-content">
         <div className="tbl-container">
-          <h1>Farmers' Organizations</h1>
+          <h1>Welcome to ASC Admin Dashboard</h1>
           <Link to="/addFO" className="add-button">
             + Add new Farmers' Organization
           </Link>
