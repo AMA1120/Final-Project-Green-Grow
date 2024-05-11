@@ -94,7 +94,26 @@ https://github.com/AMA1120/Final-Project-Green-Grow.git
 ```
 `npm run dev`
 ```
+## When Your PC has Docker Installed
 
+<p>1. Clone the Repository</p>
+
+```
+https://github.com/AMA1120/Final-Project-Green-Grow.git
+```
+<p>2. Get inside the Project</p>
+
+
+```
+cd Final-Project-Green-Grow/
+```
+
+
+<p>3. Start the Docker Containers</p>
+
+```
+docker compose up -d
+``` 
 
 # Technologies Used:
 
