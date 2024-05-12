@@ -38,6 +38,7 @@ function Farmers() {
   };
 
   const handleCollectionStatus = async (id) => {
+    navigate(0);
     try {
       // Update collection status
       const response = await axios.put(
@@ -52,9 +53,7 @@ function Farmers() {
         });
 
         console.log("SMS sent successfully");
-
-        // Navigate after sending SMS
-        navigate(0);
+        
       }
     } catch (error) {
       console.error("Error updating collection status:", error);

@@ -3,7 +3,7 @@ const router = express.Router();
 const Message = require("../models/messages");
 const mongoose = require("mongoose");
 const env = require("dotenv").config();
-const vonage = require("@vonage/server-sdk");
+const sendSMS = require("../Messages/vonage");
 
 // Route to submit a new message
 router.post("/submit", async (req, res) => {
