@@ -16,7 +16,7 @@ const FertilizerDelivery = new Schema({
     },
     status: {
         type: Number,
-        default: 0, // 0: pending, 1: Ministry 2: ASC
+        default: 0, // 0: pending = It's on harbor, 1: Ministry 2: ASC
     },
 });
 

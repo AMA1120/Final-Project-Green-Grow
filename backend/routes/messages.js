@@ -51,9 +51,7 @@ router.post("/send-sms", async (req, res) => {
   }
 });
 
-
 // Route to update message status
-
 router.put("/update-status/:id", async (req, res) => {
 
   try {
