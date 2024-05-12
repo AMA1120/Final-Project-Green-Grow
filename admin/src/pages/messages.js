@@ -22,22 +22,20 @@ function Messages() {
 
   const navigate = useNavigate();
   const handleOkClick = async (id, index, messageId) => {
+    navigate(0);
     try {
       const response = await axios.put(
         `http://localhost:3000/messages/update-status/${id}`
       );
 
-      if (response.status === 200) {
-        // If message status is updated successfully, send SMS
-        await axios.post("http://localhost:3000/messages/send-sms", {
-          message: "I will contact you as soon as possible. Thank You!",
-          number: "+94769413257", // Replace with recipient's number
-        });
+      if (response && response.status === 200) {
+        const updatedMessage = response.data.updatedMessage;
 
-        console.log("SMS sent successfully");
-
-        // Navigate after sending SMS
-        navigate(0);
+        setMessages(
+          messages.map((message) =>
+            message._id === updatedMessage._id ? updatedMessage : message
+          )
+        );
       }
     } catch (error) {
       console.error("Error updating message status:", error);
