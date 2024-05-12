@@ -3,7 +3,7 @@ const router = express.Router();
 const Message = require("../models/messages");
 const mongoose = require("mongoose");
 const env = require("dotenv").config();
-const vonage = require("@vonage/server-sdk");
+const sendSMS = require("../Messages/vonage");
 
 // Route to submit a new message
 router.post("/submit", async (req, res) => {
@@ -51,19 +51,20 @@ router.post("/send-sms", async (req, res) => {
   }
 });
 
-
 // Route to update message status
-
 router.put("/update-status/:id", async (req, res) => {
 
   try {
     const { id } = req.params;
 
     // Update status to send message (1)
-    await Message.findByIdAndUpdate(id, { check: 1 });
+    const updatedMessage = await Message.findByIdAndUpdate(id, { check: 1 });
 
-    // Fetch the updated message
-    const updatedMessage = await Message.findById(id);
+    // send SMS using Vonage
+    await sendSMS(
+      "I will contact you as soon as possible. Thank You!",
+      "+94769413257" // Replace with the recipient number
+    );
 
     res.status(200).json({
       message: "Message status updated successfully by Admin.",

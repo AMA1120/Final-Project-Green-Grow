@@ -38,6 +38,7 @@ function Farmers() {
   };
 
   const handleCollectionStatus = async (id) => {
+    navigate(0);
     try {
       // Update collection status
       const response = await axios.put(
@@ -47,14 +48,13 @@ function Farmers() {
       if (response.status === 200) {
         // If collection status is updated successfully, send SMS
         await axios.post("http://localhost:3000/messages/send-sms", {
+          
           message: "You have collected all fertilizers. Thank You!",
           number: "+94769413257", // Replace with recipient's number
         });
 
         console.log("SMS sent successfully");
-
-        // Navigate after sending SMS
-        navigate(0);
+        
       }
     } catch (error) {
       console.error("Error updating collection status:", error);
